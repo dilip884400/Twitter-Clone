@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUp.module.css";
+import { Button, TextField, Stepper, Step } from "@mui/material";
+import { FcGoogle } from "react-icons/fc";
+import { BsApple } from "react-icons/bs";
+import { Days, Month, Year } from "../../component/data/data";
 
 const Register = () => {
   const initialValues = {
@@ -17,7 +21,7 @@ const Register = () => {
   );
   const [isuserPresent, setIsuserPresent] = useState(false);
   const [isregister, setIsregister] = useState(false);
-  
+
   const handelChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
@@ -30,8 +34,6 @@ const Register = () => {
     e.preventDefault();
     setIsuserPresent(false);
     setIsregister(false);
-
-    
 
     const error = Validation(formValues);
     if (Object.keys(error).length == 0) {
@@ -64,7 +66,6 @@ const Register = () => {
   };
 
   const Validation = (values) => {
-  
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
@@ -116,11 +117,10 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.main} >
-    
+    <div className={styles.main}>
       <form className={styles.form} onSubmit={handelSubmit}>
-      <h1>Register Here...</h1>
-        <label  htmlFor="username"> Name:</label>
+        <h2>Create your account</h2>
+        <label htmlFor="username"> Name:</label>
         <input
           onChange={handelChange}
           value={formValues.username}
@@ -134,7 +134,6 @@ const Register = () => {
           onChange={handelChange}
           value={formValues.email}
           type="text"
-       
           name="email"
         />
         <p className={styles.errorMessage}>{error.email}</p>
@@ -144,7 +143,6 @@ const Register = () => {
           onChange={handelChange}
           value={formValues.password}
           type="password"
-        
           name="password"
         />
         <p className={styles.errorMessage}>{error.password}</p>
@@ -154,19 +152,43 @@ const Register = () => {
           onChange={handelChange}
           value={formValues.confirmPassword}
           type="password"
-         
           name="confirmPassword"
         />
         <p className={styles.errorMessage}>{error.confirmPassword}</p>
+        <div className={styles.Calender}>
+          <select>
+            <option>Day</option>
+            {Days.map((ele) => (
+              <option>{ele}</option>
+            ))}
+          </select>
+
+          <select>
+            <option>Month</option>
+            {Month.map((ele) => (
+              <option>{ele}</option>
+            ))}
+          </select>
+
+          <select>
+            <option>Year</option>
+            {Year.map((ele) => (
+              <option>{ele}</option>
+            ))}
+          </select>
+        </div>
 
         <button type="submit" className={styles.Register}>
           Register
         </button>
         <h3>
-        Already have an account? <Link className={styles.spanlogin} to="/">Login</Link>
-      </h3>
-      <h2>{isuserPresent ? "User Already exits please login" : ""}</h2>
-      <h2>{isregister ? "Registration succesfully" : ""}</h2>
+          Already have an account?{" "}
+          <Link className={styles.spanlogin} to="/">
+            Login
+          </Link>
+        </h3>
+        <h2>{isuserPresent ? "User Already exits please login" : ""}</h2>
+        <h2>{isregister ? "Registration succesfully" : ""}</h2>
       </form>
     </div>
   );

@@ -1,0 +1,42 @@
+.container {
+
+    display: flex;
+   
+    gap: 3%;
+    flex-direction: column;
+    margin: 5px;
+    justify-content: center; 
+    align-items: center;
+     padding-bottom: 1%;
+     background-color: black;
+     border-radius: 20px;
+}
+    
+.btn{
+    
+    border-radius: 20px !important;
+    width:20rem;
+    margin: 10px !important;
+    text-transform: none !important;
+    background-color: white !important;
+    color: black !important;
+ }
+
+.input{
+    width:20rem !important;
+    padding: 1px !important;
+   
+   background-color: aliceblue !important;
+    
+ }
+    
+.card{
+    
+    margin:10% 30%;
+}
+h1{
+    color: aliceblue;
+}
+h3{
+    color: aliceblue;
+}

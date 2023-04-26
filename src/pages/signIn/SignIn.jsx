@@ -2,10 +2,19 @@ import React, { useRef, useState } from "react";
 import styles from "./SignIn.module.css"; 
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import {Button,TextField,Box} from "@mui/material"
+import {Button,TextField,Box, Card,Stepper,Step } from "@mui/material"
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GoogleIcon from '@mui/icons-material/Google';
+import AppleIcon from '@mui/icons-material/Twitter';
 import {FaTwitter} from 'react-icons/fa'
 import {FcGoogle} from 'react-icons/fc'
+import ClearIcon from '@mui/icons-material/Clear';
+
 const Login = () => {
+
+  const dataa = [
+    "","or",""
+   ];
   const obj = {
     email: "",
     password: "",
@@ -83,37 +92,47 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.loginMian}>
-      <Box
-      sx={{
-        width: 300,
-        height: 300,
-        backgroundColor: 'white',
-        border : '1px solid red'
-      }}
-    >
-            <FaTwitter className=""/>
-            <FcGoogle/>
-        <form className={styles.loginContainer} onSubmit={handlesubmit}>
-        
-        <h1>Sign in to Twitter</h1>
-           <TextField type="email"
-            name="email" id="outlined-basic" label="email" variant="outlined"  onChange={handleChange} value={formValues.email}/>
-          <p>{errors.email}</p>
+    <div>
+      <Card sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
+        <div className={styles.container}>
           
-           <TextField type="password"
-            name="password" id="outlined-basic" label="password" variant="outlined"  onChange={handleChange} value={formValues.password}/>
-          <p>{errors.password}</p>
-          <Button type="submit" className={styles.loginButton} color='primary' variant="contained">LogIn</Button>
-         
-          <h3>
-          Don't have an account? <Link className={styles.spanlogin} to="/signup">Register</Link>
-        </h3>
-        <h1>{isUser}</h1>
-        </form>
+            
+           <div> <ClearIcon sx={{ color:"white", cursor: "pointer",fontSize:45, textAlign:"start"}}  />
+            <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
+            </div>
+                   <h1>Sign in to Twitter</h1>
+              <Button className={styles.btn}  variant="contained">{" "}
+                  <GoogleIcon/> Signin with Gmail
+              </Button><br/>
+              <Button className={styles.btn}  variant="contained"><AppleIcon/>Sign in with Apple</Button><br/>
+              <form className={styles.container} onSubmit={handlesubmit}>
+              <Stepper >
+                    {dataa.map((label) => (
+                    <Step key={label}>{label} </Step>
+                    ))}
+                  </Stepper>
+        
+                  <TextField className={styles.input}  type="email"
+                    name="email" id="outlined-basic" label="email" variant="outlined"  onChange={handleChange} value={formValues.email}/>
+                   <p>{errors.email}</p>
+          
+                  <TextField className={styles.input}  type="password"
+                      name="password" id="outlined-basic" label="password" variant="outlined"  onChange={handleChange} value={formValues.password}/>
+                      <p>{errors.password}</p>
+                  <Button className={styles.btn}  type="submit"  color='primary' variant="contained">LogIn</Button>
+                  <Button className={styles.btn}  variant="contained">Forgot Password</Button><br/>
+              </form> 
+                 <h3>
+                    Don't have an account? <Link  to="/joinus">Join Us</Link>
+                </h3>
+                <h1>{isUser}</h1>
+             
        
-        </Box>
-      </div>
+             </div>
+        
+      </Card>
+    </div>
+ 
    
   );
 };
