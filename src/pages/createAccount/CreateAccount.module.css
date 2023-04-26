@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.btn1 {
+  color: black;
+  border: rgb(116, 112, 112);
+  width: 350px;
+  border-radius: 30px;
+  padding: 3px;
+}
+.btn2 {
+  margin: 14px;
+  border: rgb(116, 112, 112);
+  color: black;
+  width: 350px;
+  border-radius: 30px;
+  padding: 3px;
+}
+
+.btn3 {
+  background-color: black;
+  margin: 14px;
+  color: white;
+  padding: 9px;
+  font-weight: 12px;
+  width: 350px;
+  border-radius: 30px;
+}
+.btn2:hover {
+  cursor: pointer;
+}

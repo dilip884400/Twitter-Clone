@@ -1,12 +1,13 @@
-
-import "./App.css";
 import {  Routes, Route } from "react-router-dom";
 import SignIn from "./pages/signIn/SignIn.jsx";
 import SignUp from "./pages/signUp/SignUp.jsx";
 import Home from "./pages/homePage/Home.jsx";
+import CreateAccount from "./pages/createAccount/CreateAccount.jsx";
 function App() {
   return (
     <div className="App">
+    
+      <><CreateAccount/></>
    
         <Routes>
           <Route path="/home" element={<Home />} />
