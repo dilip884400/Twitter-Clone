@@ -84,7 +84,7 @@ const SignUp = () => {
     let leapYear = true;
     let year = data.year;
 
-    if ((year % 100 == 0 && year % 400 == 0) || year % 4 == 0) {
+    if ((year % 100 === 0 && year % 400 === 0) || year % 4 === 0) {
       leapYear = true;
     } else {
       leapYear = false;
@@ -93,28 +93,28 @@ const SignUp = () => {
     const users = getData();
     if (
       !data.name ||
-      data.name == " " ||
+      data.name === " " ||
       !data.email ||
       !data.password ||
       !data.date ||
-      data.name == "Day" ||
+      data.name === "Day" ||
       !data.month ||
-      data.month == "Month" ||
+      data.month === "Month" ||
       !data.year ||
-      data.year == "Year"
+      data.year === "Year"
     ) {
       alert("Please Fill All the deatails!!");
     } else if (data.password.length < 8) {
       alert("Password Should contains 8 letter");
     } else if (
-      leapYear == false &&
-      data.month == "February" &&
+      leapYear === false &&
+      data.month === "February" &&
       data.date > 28
     ) {
       alert("Enter Valid date");
-    } else if (leapYear == true && data.month == "February" && data.date > 29) {
+    } else if (leapYear === true && data.month === "February" && data.date > 29) {
       alert("Enter Valid date");
-    } else if (ValidMonth.includes(data.month) == false && data.date > 30) {
+    } else if (ValidMonth.includes(data.month) === false && data.date > 30) {
       alert("Enter Valid date");
     } else {
       alert("registeration success");

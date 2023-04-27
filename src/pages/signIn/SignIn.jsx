@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 import {Button,TextField,Box,Stepper,Step } from "@mui/material"
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
-import AppleIcon from '@mui/icons-material/Twitter';
-import { isUserLoggedIn } from "../Data/AtomData/Atom";
-import { useRecoilState } from "recoil";
+import AppleIcon from '@mui/icons-material/Apple';
+
 import ClearIcon from '@mui/icons-material/Clear';
 
 const Login = () => {
@@ -19,7 +18,7 @@ const Login = () => {
     email: "",
     password: "",
   };
-  const [isLogIn, setIsLogIn] = useRecoilState(isUserLoggedIn);
+  
   const [errors, setErrors] = useState({});
   const [data, setData] = useState(
     JSON.parse(localStorage.getItem("users")) || []
@@ -96,15 +95,14 @@ const Login = () => {
       <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
         <div className={styles.container}>
           
-            
-        
             <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
             
                    <h1>Sign in to Twitter</h1>
-              <Button className={styles.btn}  variant="contained">{" "}
+              <Button className={styles.btn}  variant="contained">
                   <GoogleIcon/> Signin with Gmail
               </Button><br/>
-              <Button className={styles.btn}  variant="contained"><AppleIcon/>Sign in with Apple</Button><br/>
+              <Button className={styles.btn} variant="contained">
+               <AppleIcon /> Sign in with Apple</Button>
               <form className={styles.container} onSubmit={handlesubmit}>
               <Stepper className={ styles.stepper} >
                     {dataa.map((label) => (
