@@ -1,0 +1,5 @@
+.MainHome{
+    border: 2px solid red;
+    height: 100%;
+    flex: 0.50;
+}
