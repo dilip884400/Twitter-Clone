@@ -1,182 +1,193 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+
 import styles from "./SignUp.module.css";
-import { Button, TextField,Box} from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
+import { Days, Month, Year } from "../Data/AtomData/Data"
+import { useNavigate } from "react-router-dom";
+import TwitterIcon from '@mui/icons-material/Twitter';
 
-import { Days, Month, Year } from "../../component/data/data";
 
-const Register = () => {
-  const initialValues = {
-    username: "",
+const SignUp = () => {
+  const [isInput, setIsInput] = useState(false);
+  const navigate = useNavigate();
+
+  const [data, setData] = useState({
+    name: "",
     email: "",
     password: "",
-    confirmPassword: "",
-  };
+    date: "",
+    month: "",
+    year: "",
+  });
 
-  const [formValues, setFormValues] = useState(initialValues);
-  const [error, setError] = useState({});
-  const [userdata, setUserdata] = useState(
-    JSON.parse(localStorage.getItem("userdata")) || []
-  );
-  const [isuserPresent, setIsuserPresent] = useState(false);
-  const [isregister, setIsregister] = useState(false);
+  function handleName(e) {
+    const input = { ...data };
+    input.name = e.target.value;
+    setData(input);
+  }
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
-  };
+  function handleEmail(e) {
+    const input = { ...data };
+    input.email = e.target.value;
+    setData(input);
+  }
 
-  const handleSubmit = (e) => {
+  function handlePassword(e) {
+    const input = { ...data };
+    input.password = e.target.value;
+    setData(input);
+  }
+
+  function handleDate(e) {
+    const input = { ...data };
+    input.date = e.target.value;
+    setData(input);
+  }
+
+  function handleMonth(e) {
+    const input = { ...data };
+    input.month = e.target.value;
+    setData(input);
+  }
+
+  function handleYear(e) {
+    const input = { ...data };
+    input.year = e.target.value;
+    setData(input);
+  }
+
+  function getData() {
+    const users = localStorage.getItem("users");
+    if (users) {
+      try {
+        return JSON.parse(users);
+      } catch {
+        return [];
+      }
+    }
+    return [];
+  }
+
+  function handleSubmit(e) {
     e.preventDefault();
-    setIsuserPresent(false);
-    setIsregister(false);
 
-    const error = Validation(formValues);
-    if (Object.keys(error).length === 0) {
-      const result = userFind(formValues.email);
+    const ValidMonth = [
+      "January",
+      "March",
+      "May",
+      "July",
+      "August",
+      "October",
+      "December",
+    ];
 
-      if (result) {
-        setIsuserPresent(true);
+    let leapYear = true;
+    let year = data.year;
 
-        return;
-      }
-
-      setUserdata([...userdata, formValues]);
-      localStorage.setItem(
-        "userdata",
-        JSON.stringify([...userdata, formValues])
-      );
-      setIsregister(true);
-
-      setFormValues({
-        username: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-
-      setError({});
+    if ((year % 100 == 0 && year % 400 == 0) || year % 4 == 0) {
+      leapYear = true;
     } else {
-      setError(error);
-    }
-  };
-
-  const Validation = (values) => {
-    const errors = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
-    if (!values.username) {
-      errors.username = "username is required !";
+      leapYear = false;
     }
 
-    if (!values.email) {
-      errors.email = "email is required !";
-    } else if (!regex.test(values.email)) {
-      errors.email = "this is not valid email";
-    }
-
-    if (!values.password) {
-      errors.password = "Password is required !";
-    } else if (values.password.length < 6) {
-      errors.password = "Password should be greater than 6 character";
-    } else if (values.password.length > 16) {
-      errors.password = "Password should be less than 16 character";
-    } else if (
-      values.password.includes(123) ||
-      values.password.includes(1234) ||
-      values.password.includes(123456) ||
-      values.password.includes(12345678)
+    const users = getData();
+    if (
+      !data.name ||
+      data.name == " " ||
+      !data.email ||
+      !data.password ||
+      !data.date ||
+      data.name == "Day" ||
+      !data.month ||
+      data.month == "Month" ||
+      !data.year ||
+      data.year == "Year"
     ) {
-      errors.password = "Password should be Unique";
+      alert("Please Fill All the deatails!!");
+    } else if (data.password.length < 8) {
+      alert("Password Should contains 8 letter");
+    } else if (
+      leapYear == false &&
+      data.month == "February" &&
+      data.date > 28
+    ) {
+      alert("Enter Valid date");
+    } else if (leapYear == true && data.month == "February" && data.date > 29) {
+      alert("Enter Valid date");
+    } else if (ValidMonth.includes(data.month) == false && data.date > 30) {
+      alert("Enter Valid date");
+    } else {
+      alert("registeration success");
+      users.push(data);
+      localStorage.setItem("users", JSON.stringify(users));
+      navigate("/")
     }
-
-    if (!values.confirmPassword) {
-      errors.confirmPassword = "confirm Password is required";
-    } else if (values.password !== values.confirmPassword) {
-      errors.confirmPassword = "Password doesn't match";
-    }
-
-    return errors;
-  };
-
-  const userFind = (email) => {
-    const data = userdata;
-
-    let result = false;
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].email === email) {
-        result = true;
-        break;
-      }
-    }
-    return result;
-  };
+  }
 
   return (
     <div >
-      <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
-        <div className={styles.container} >
-          <form className={styles.container} onSubmit={handleSubmit}>
-            <h1>Create your account</h1>
+    <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
+      <div className={styles.container} >
+      <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
+          <h1>Sign in to Twitter</h1>
+        <form onSubmit={(e) => handleSubmit(e)} className={styles.container}>
+          <TextField className={styles.input} 
+            id="outlined-basic"
+            label="Name"
+            variant="outlined"
+            onChange={(e) => handleName(e)}
+          />
+          <TextField className={styles.input} 
+            id="outlined-basic"
+            type="email"
+            label="Email"
+            variant="outlined"
+            onChange={(e) => handleEmail(e)}
+          />
+          <TextField className={styles.input} 
+            type="password"
+            id="outlined-basic"
+            label="Password"
+            variant="outlined"
+            onChange={(e) => handlePassword(e)}
+          />
+          <div className={styles.Calender}>
+            <select onChange={(e) => handleMonth(e)}>
+              <option>Month</option>
+              {Month.map((ele) => (
+                <option>{ele}</option>
+              ))}
+            </select>
 
-            <TextField className={styles.input}  type="username"
-                    name="username" id="outlined-basic" label="Usename" variant="outlined"  onChange={handleChange}  value={formValues.username}/>
-                <p className={styles.errorMessage}>{error.username}</p>
-        
-            <TextField className={styles.input}  type="email"
-                    name="email" id="outlined-basic" label="email" variant="outlined"  onChange={handleChange} value={formValues.email}/>
-                  <p className={styles.errorMessage}>{error.email}</p>
-       
-            <TextField className={styles.input}  type="password"
-                    name="password" id="outlined-basic" label="Password" variant="outlined"  onChange={handleChange} value={formValues.password}/>
-                 <p className={styles.errorMessage}>{error.password}</p>
+            <select onChange={(e) => handleDate(e)}>
+              <option>Day</option>
+              {Days.map((ele) => (
+                <option>{ele}</option>
+              ))}
+            </select>
 
-            <TextField className={styles.input}  type="password"
-                    name="confirmPassword" id="outlined-basic" label="Confirm Password" variant="outlined"  onChange={handleChange} value={formValues.confirmPassword}/>
-                 <p className={styles.errorMessage}>{error.confirmPassword}</p>
-       
-           <div className={styles.Calender}>
-               <select>
-                  <option>Day</option>
-                     {Days.map((ele) => (
-                      <option>{ele}</option>
-                     ))}
-               </select>
+            <select onChange={(e) => handleYear(e)}>
+              <option>Year</option>
+              {Year.map((ele) => (
+                <option>{ele}</option>
+              ))}
+            </select>
+          </div>
 
-               <select>
-                   <option>Month</option>
-                      {Month.map((ele) => (
-                         <option>{ele}</option>
-                     ))}
-               </select>
+          <Button className={styles.btn}  variant="contained" type="submit">
+            Register
+          </Button>
+        </form>
+      
 
-               <select>
-                  <option>Year</option>
-                      {Year.map((ele) => (
-                      <option>{ele}</option>
-                  ))}
-               </select>
-            </div>
-          
-          <Button type="submit" className={styles.btn}>
-               Register
-             </Button>
-             </form>
-            <h3>
-               Already have an account?{" "}
-                <Link className={styles.spanlogin} to="/">
-                 Login
-               </Link>
-            </h3>
-                <h2>{isuserPresent ? "User Already exits please login" : ""}</h2>
-                <h2>{isregister ? "Registration succesfully" : ""}</h2>
-        </div>
+      <div className={styles.switch}>
+        <span>Already Have an Account?</span> &nbsp;
+        <span onClick={() => navigate("/")}>Sign In</span>
+      </div>
+      </div>
       </Box>
     </div>
   );
 };
 
-export default Register;
+export default SignUp;

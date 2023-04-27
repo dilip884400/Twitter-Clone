@@ -6,7 +6,8 @@ import {Button,TextField,Box,Stepper,Step } from "@mui/material"
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Twitter';
-
+import { isUserLoggedIn } from "../Data/AtomData/Atom";
+import { useRecoilState } from "recoil";
 import ClearIcon from '@mui/icons-material/Clear';
 
 const Login = () => {
@@ -18,10 +19,10 @@ const Login = () => {
     email: "",
     password: "",
   };
-
+  const [isLogIn, setIsLogIn] = useRecoilState(isUserLoggedIn);
   const [errors, setErrors] = useState({});
   const [data, setData] = useState(
-    JSON.parse(localStorage.getItem("userdata")) || []
+    JSON.parse(localStorage.getItem("users")) || []
   );
   const [isUser, setIsuser] = useState("");
   const [formValues, setFormValues] = useState(obj);
@@ -118,13 +119,14 @@ const Login = () => {
                   <TextField className={styles.input}  type="password"
                       name="password" id="outlined-basic" label="password" variant="outlined"  onChange={handleChange} value={formValues.password}/>
                       <p>{errors.password}</p>
+                      <h2 className={styles.h2}>{isUser}</h2>
                   <Button className={styles.btn}  type="submit"  color='primary' variant="contained">LogIn</Button>
                   <Button className={styles.btn}  variant="contained">Forgot Password</Button><br/>
               </form> 
                  <h3>
                     Don't have an account? <Link  to="/joinus">Join Us</Link>
                 </h3>
-                <h1>{isUser}</h1>
+                
              
        
              </div>
