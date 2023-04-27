@@ -1,13 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, {  useState } from "react";
 import styles from "./SignIn.module.css"; 
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import {Button,TextField,Box, Card,Stepper,Step } from "@mui/material"
+import {Button,TextField,Box,Stepper,Step } from "@mui/material"
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Twitter';
-import {FaTwitter} from 'react-icons/fa'
-import {FcGoogle} from 'react-icons/fc'
+
 import ClearIcon from '@mui/icons-material/Clear';
 
 const Login = () => {
@@ -93,20 +92,20 @@ const Login = () => {
 
   return (
     <div>
-      <Card sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
+      <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
         <div className={styles.container}>
           
             
-           <div> <ClearIcon sx={{ color:"white", cursor: "pointer",fontSize:45, textAlign:"start"}}  />
+        
             <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
-            </div>
+            
                    <h1>Sign in to Twitter</h1>
               <Button className={styles.btn}  variant="contained">{" "}
                   <GoogleIcon/> Signin with Gmail
               </Button><br/>
               <Button className={styles.btn}  variant="contained"><AppleIcon/>Sign in with Apple</Button><br/>
               <form className={styles.container} onSubmit={handlesubmit}>
-              <Stepper >
+              <Stepper className={ styles.stepper} >
                     {dataa.map((label) => (
                     <Step key={label}>{label} </Step>
                     ))}
@@ -130,7 +129,7 @@ const Login = () => {
        
              </div>
         
-      </Card>
+      </Box>
     </div>
  
    

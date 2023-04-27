@@ -4,26 +4,27 @@
    
     gap: 3%;
     flex-direction: column;
-    margin: 5px;
+   width: 100%;
     justify-content: center; 
     align-items: center;
      padding-bottom: 1%;
-     background-color: black;
+     background-color: rgb(247, 247, 247);
      border-radius: 20px;
 }
+
     
 .btn{
     
     border-radius: 20px !important;
-    width:20rem;
+    width: 50%;
     margin: 10px !important;
     text-transform: none !important;
-    background-color: white !important;
-    color: black !important;
+    background-color: rgb(5, 5, 5) !important;
+    color: rgb(246, 246, 246) !important;
  }
 
 .input{
-    width:20rem !important;
+    width:50% !important;
     padding: 1px !important;
    
    background-color: aliceblue !important;
@@ -32,11 +33,14 @@
     
 .card{
     
-    margin:10% 30%;
+    margin:5% 30%;
 }
+
 h1{
-    color: aliceblue;
+    color: rgb(9, 9, 9);
+    text-align: center;
 }
 h3{
-    color: aliceblue;
+    color: rgb(11, 11, 11);
+    text-align: center;
 }

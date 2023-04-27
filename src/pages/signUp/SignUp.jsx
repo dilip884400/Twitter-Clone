@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./SignUp.module.css";
-import { Button, TextField, Stepper, Step } from "@mui/material";
-import { FcGoogle } from "react-icons/fc";
-import { BsApple } from "react-icons/bs";
+import { Button, TextField,Box} from "@mui/material";
+
 import { Days, Month, Year } from "../../component/data/data";
 
 const Register = () => {
@@ -22,7 +21,7 @@ const Register = () => {
   const [isuserPresent, setIsuserPresent] = useState(false);
   const [isregister, setIsregister] = useState(false);
 
-  const handelChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
       ...formValues,
@@ -30,13 +29,13 @@ const Register = () => {
     });
   };
 
-  const handelSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsuserPresent(false);
     setIsregister(false);
 
     const error = Validation(formValues);
-    if (Object.keys(error).length == 0) {
+    if (Object.keys(error).length === 0) {
       const result = userFind(formValues.email);
 
       if (result) {
@@ -108,7 +107,7 @@ const Register = () => {
 
     let result = false;
     for (let i = 0; i < data.length; i++) {
-      if (data[i].email == email) {
+      if (data[i].email === email) {
         result = true;
         break;
       }
@@ -117,79 +116,65 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.main}>
-      <form className={styles.form} onSubmit={handelSubmit}>
-        <h2>Create your account</h2>
-        <label htmlFor="username"> Name:</label>
-        <input
-          onChange={handelChange}
-          value={formValues.username}
-          type="text"
-          name="username"
-        />
+    <div >
+      <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
+        <div className={styles.container} >
+          <form className={styles.container} onSubmit={handleSubmit}>
+            <h1>Create your account</h1>
 
-        <p className={styles.errorMessage}>{error.username}</p>
-        <label htmlFor="email">Email:</label>
-        <input
-          onChange={handelChange}
-          value={formValues.email}
-          type="text"
-          name="email"
-        />
-        <p className={styles.errorMessage}>{error.email}</p>
+            <TextField className={styles.input}  type="username"
+                    name="username" id="outlined-basic" label="Usename" variant="outlined"  onChange={handleChange}  value={formValues.username}/>
+                <p className={styles.errorMessage}>{error.username}</p>
+        
+            <TextField className={styles.input}  type="email"
+                    name="email" id="outlined-basic" label="email" variant="outlined"  onChange={handleChange} value={formValues.email}/>
+                  <p className={styles.errorMessage}>{error.email}</p>
+       
+            <TextField className={styles.input}  type="password"
+                    name="password" id="outlined-basic" label="Password" variant="outlined"  onChange={handleChange} value={formValues.password}/>
+                 <p className={styles.errorMessage}>{error.password}</p>
 
-        <label htmlFor="password">Password:</label>
-        <input
-          onChange={handelChange}
-          value={formValues.password}
-          type="password"
-          name="password"
-        />
-        <p className={styles.errorMessage}>{error.password}</p>
+            <TextField className={styles.input}  type="password"
+                    name="confirmPassword" id="outlined-basic" label="Confirm Password" variant="outlined"  onChange={handleChange} value={formValues.confirmPassword}/>
+                 <p className={styles.errorMessage}>{error.confirmPassword}</p>
+       
+           <div className={styles.Calender}>
+               <select>
+                  <option>Day</option>
+                     {Days.map((ele) => (
+                      <option>{ele}</option>
+                     ))}
+               </select>
 
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          onChange={handelChange}
-          value={formValues.confirmPassword}
-          type="password"
-          name="confirmPassword"
-        />
-        <p className={styles.errorMessage}>{error.confirmPassword}</p>
-        <div className={styles.Calender}>
-          <select>
-            <option>Day</option>
-            {Days.map((ele) => (
-              <option>{ele}</option>
-            ))}
-          </select>
+               <select>
+                   <option>Month</option>
+                      {Month.map((ele) => (
+                         <option>{ele}</option>
+                     ))}
+               </select>
 
-          <select>
-            <option>Month</option>
-            {Month.map((ele) => (
-              <option>{ele}</option>
-            ))}
-          </select>
-
-          <select>
-            <option>Year</option>
-            {Year.map((ele) => (
-              <option>{ele}</option>
-            ))}
-          </select>
+               <select>
+                  <option>Year</option>
+                      {Year.map((ele) => (
+                      <option>{ele}</option>
+                  ))}
+               </select>
+            </div>
+          
+          <Button type="submit" className={styles.btn}>
+               Register
+             </Button>
+             </form>
+            <h3>
+               Already have an account?{" "}
+                <Link className={styles.spanlogin} to="/">
+                 Login
+               </Link>
+            </h3>
+                <h2>{isuserPresent ? "User Already exits please login" : ""}</h2>
+                <h2>{isregister ? "Registration succesfully" : ""}</h2>
         </div>
-
-        <button type="submit" className={styles.Register}>
-          Register
-        </button>
-        <h3>
-          Already have an account?{" "}
-          <Link className={styles.spanlogin} to="/">
-            Login
-          </Link>
-        </h3>
-        <h2>{isuserPresent ? "User Already exits please login" : ""}</h2>
-        <h2>{isregister ? "Registration succesfully" : ""}</h2>
-      </form>
+      </Box>
     </div>
   );
 };
