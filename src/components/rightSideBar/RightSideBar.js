@@ -1,10 +1,19 @@
-import React from 'react'
-import styles from './RightSideBar.module.css'
+import React from 'react';
+import Styles from "./RightSideBar.module.css";
+import { Search } from "@mui/icons-material";
 
-export default function RightSideBar() {
+
+function RightSideBar(){
+ 
   return (
-    <div className={styles.RightSideBar}>
-      this is right slidebar
+    <div className={Styles.RightMain}>
+  
+      <Search/>
+      <Trends/>
+      <Righthomebox2/>
+  
     </div>
   )
 }
+
+export default RightSideBar;

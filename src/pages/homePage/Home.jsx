@@ -3,6 +3,7 @@ import HomeLanding from "../../components/landingPage/HomeLanding";
 import LeftSideBar from "../../components/leftSideBar/LeftSideBar";
 import RightSideBar from "../../components/rightSideBar/RightSideBar";
 import styles from "./Home.module.css";
+
 export default function Home() {
   return (
     <div
@@ -12,6 +13,8 @@ export default function Home() {
       <LeftSideBar style={{ gridRow: "1 / span 2" }} />
       <HomeLanding style={{ gridRow: "1 / span 3" }} />
       <RightSideBar style={{ gridRow: "1 / span 2" }} />
+
     </div>
   );
 }
+

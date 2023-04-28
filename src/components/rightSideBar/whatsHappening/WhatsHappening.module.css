@@ -1,0 +1,43 @@
+
+.widgets{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+   flex: 0.29;
+   position: relative;
+}
+.search_area{
+    background: var(---twitter--);
+    display: flex;
+    align-items: center;
+    line-height: 1.2rem;
+    width: 20%;
+    border-radius: 5rem;
+    position: absolute;
+}
+.SearchInput{
+   background: transparent;
+   border: none;
+   outline: none;
+
+}
+.trending_area{
+    width: 80%;
+    height: 80%;
+    background: var(---twitter-background);
+    padding: 2rem;
+    position: absolute;
+    /* top: 5%; */
+    right: 0;
+    border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
