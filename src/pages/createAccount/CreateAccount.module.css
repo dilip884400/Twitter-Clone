@@ -2,9 +2,9 @@
 
   display: flex;
  
-  gap: 3%;
+  gap: 2%;
   flex-direction: column;
- width: 100%;
+  width: 100%;
   justify-content: center; 
   align-items: center;
    padding-bottom: 1%;
@@ -15,7 +15,7 @@
 .btn{
   
   border-radius: 20px !important;
-  width: 50%;
+  width: 40%;
   margin: 10px !important;
   text-transform: none !important;
   background-color: rgb(3, 3, 3) !important;
@@ -23,7 +23,7 @@
 }
 
 .input{
-  width:50% !important;
+  width:40% !important;
   padding: 1px !important;
  
  background-color: aliceblue !important;
@@ -32,7 +32,7 @@
   
 .card{
   
-  margin:10% 30%;
+  margin:10% 25%;
 }
 h1{
   color: rgb(10, 10, 10);

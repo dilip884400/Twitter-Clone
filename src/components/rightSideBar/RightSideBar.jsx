@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from './searchbar/SearchBar'
+import Search from './searchBar/SearchBar'
 import TrendingBar from './whatsHappeningBar/TrendingBar'
 import Righthomebox2 from './whoToFollowBar/WhoToFollow'
 import styles from "./RightSideBar.module.css"
