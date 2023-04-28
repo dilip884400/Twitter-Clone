@@ -6,8 +6,10 @@ import {Button,TextField,Box,Stepper,Step } from "@mui/material"
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
+import { isLogin } from "../Atom"
+import { useRecoilState } from "recoil";
 
-import ClearIcon from '@mui/icons-material/Clear';
+
 
 const Login = () => {
 
@@ -18,7 +20,7 @@ const Login = () => {
     email: "",
     password: "",
   };
-  
+  const [login,setLogin]=useRecoilState(isLogin)
   const [errors, setErrors] = useState({});
   const [data, setData] = useState(
     JSON.parse(localStorage.getItem("users")) || []
@@ -51,6 +53,7 @@ const Login = () => {
       setIsuser("Login SuccesFully");
       setTimeout(() => {
         Navigate("/home");
+        setLogin(true)
       }, 500);
     } else {
       setIsuser("something went wrong");

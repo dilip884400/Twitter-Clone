@@ -1,0 +1,30 @@
+.postTweetContainer{
+    padding-bottom: 10px;
+    border-bottom: 0.20rem solid rgb(222, 222, 222);
+    padding-right: 10px;
+}
+.postTweetContainer>form{
+display: flex;
+flex-direction: column;
+}
+.postTweetInput{
+    padding: 20px;
+    display: flex;
+}
+.postTweetInput>input{
+flex: 1;
+margin-left: 20px;
+font-size: 20px;
+border: none;
+}
+.tweetBtn{
+    border: none !important;
+    font-weight: 900 !important;
+    width: 80px;
+    height: 40px;
+    text-transform: inherit !important;
+   border-radius: 30px !important;
+   margin-top: 20px !important;
+   margin-left: auto !important;
+   background-color:#42a5f5 !important;
+}

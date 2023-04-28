@@ -1,0 +1,25 @@
+.Headinh{
+    display: flex;
+    justify-content:space-around;
+    text-align: center;
+}
+.Headinh>h2{
+    
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    padding: 1rem;
+}
+.PostTweetHeader{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+   background-color:rgb(255, 255, 255);    
+   z-index: 1;
+   border-bottom: 0.20rem solid rgb(228, 228, 228);
+}
+
+.Headinh>h2:hover{
+    background-color: rgb(228, 228, 228);
+    border-bottom: 0.25rem solid skyblue;
+}
