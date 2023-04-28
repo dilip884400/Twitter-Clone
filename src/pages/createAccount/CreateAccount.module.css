@@ -1,48 +1,93 @@
 .container {
-
   display: flex;
- 
-  gap: 2%;
   flex-direction: column;
-  width: 100%;
-  justify-content: center; 
   align-items: center;
-   padding-bottom: 1%;
-   background-color: rgb(247, 247, 247);
-   border-radius: 20px;
+  padding-bottom: 1%;
+  background-color: rgb(247, 247, 247);
+  border-radius: 20px;
 }
 
-.btn{
-  
+.btn {
   border-radius: 20px !important;
-  width: 40%;
+  width: 80%;
   margin: 10px !important;
   text-transform: none !important;
   background-color: rgb(3, 3, 3) !important;
   color: rgb(255, 255, 255) !important;
 }
 
-.input{
-  width:40% !important;
+.input {
+  width: 80% !important;
   padding: 1px !important;
- 
- background-color: aliceblue !important;
-  
+  background-color: aliceblue !important;
 }
-  
-.card{
-  
-  margin:10% 25%;
+
+.card {
+  margin: 10% 5%;
 }
-h1{
+
+h1 {
   color: rgb(10, 10, 10);
   text-align: center;
 }
-h3{
+
+h3 {
   color: rgb(12, 12, 12);
   text-align: center;
 }
-p{
+
+p {
   color: rgb(12, 12, 12);
   text-align: center;
+}
+
+@media only screen and (min-width: 576px) {
+  /* styles for screens larger than 576px */
+  .container {
+
+    display: flex;
+   
+    gap: 2%;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center; 
+    align-items: center;
+     padding-bottom: 1%;
+     background-color: rgb(247, 247, 247);
+     border-radius: 20px;
+  }
+  
+  .btn{
+    
+    border-radius: 20px !important;
+    width: 40%;
+  
+    text-transform: none !important;
+    background-color: rgb(3, 3, 3) !important;
+    color: rgb(255, 255, 255) !important;
+  }
+  
+  .input{
+    width:40% !important;
+    padding: 1px !important;
+   
+   background-color: aliceblue !important;
+    
+  }
+  .card{
+  
+    margin:10% 35%;
+  }
+  h1{
+    color: rgb(10, 10, 10);
+    text-align: center;
+  }
+  h3{
+    color: rgb(12, 12, 12);
+    text-align: center;
+  }
+  p{
+    color: rgb(12, 12, 12);
+    text-align: center;
+  } 
 }

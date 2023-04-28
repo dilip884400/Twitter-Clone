@@ -12,6 +12,13 @@
       display: flex;
       flex-direction: column;
       color: white;
+      margin-left: 7rem;
     }
-  
-  
+  .btn{
+    
+    margin-right: 3rem;
+  }
+  .btns{
+    
+    margin-right: 7rem;
+  }

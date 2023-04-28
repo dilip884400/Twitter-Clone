@@ -20,7 +20,7 @@ const LeftSideBar = () => {
         </li>
         <li className={styles.option}>
           <TagIcon sx={{ fontSize:35,marginRight:2 }}/>
-          Expolre
+          Explore
         </li>
         <li className={styles.option}>
           <NotificationsNoneIcon sx={{ fontSize:35,marginRight:2 }}/>

@@ -3,18 +3,22 @@
   width:90%;
   color: black;
   margin-top: 2.4rem;
-
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+  
 }
 .key {
   background: #F7F9F9;
-  padding: 0.45rem;
+ 
   border-radius: 5px;
   border-radius: 15px;
+  padding: 3rem;
+ 
 }
 .keyword__heading {
   font-size: 800;
   padding-bottom: 0.8rem;
-  padding-left: 0.8rem;
+  
   font-family: inherit;
   
 }

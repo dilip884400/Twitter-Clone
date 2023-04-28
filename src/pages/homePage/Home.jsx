@@ -7,7 +7,9 @@ import Footer from '../../components/footer/Footer'
 import { isLogin } from "../Atom"
 import { useRecoilValue } from "recoil";
 import Post from '../../components/post/Post'
-import CreateAccount from '../createAccount/CreateAccount'
+
+import NotLogin from '../notLoginRight/NotLoginRight'
+import NotLoginLeft from '../notLoginLeft/NotLoginLeft'
 // export default function Home() {
 //   return (
 //     <div>
@@ -38,15 +40,15 @@ function Home() {
              
               </div>
          </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr 1fr" }} >
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr" }} >
                 <div >
-                   {!islogin && <LeftSideBar style={{ gridRow: '1 / span 2' }}/>}
+                   {!islogin && <NotLoginLeft style={{ gridRow: '1 / span 2' }}/>}
                 </div> 
                  <div>
                       {!islogin && <Post style={{ gridRow: '2 / span 3' }} /> }
                   </div>
                   <div>
-                      {!islogin && < CreateAccount style={{ gridRow: "3 / span 3" }}/>}
+                      {!islogin && < NotLogin style={{ gridRow: "3 / span 3" }}/>}
                    </div>
                  {!islogin && <Footer />}
             </div>
