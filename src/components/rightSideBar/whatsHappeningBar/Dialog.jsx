@@ -24,7 +24,7 @@ const Dialog2 = (props) => {
           color: "#fff",
           background: "black",
           border: "1px solid #fff",
-          // boxShadow: "0 0 10px #fff",
+        
         }}
         onOpenChange={handleOpenChange}
       >

@@ -42,6 +42,34 @@ const Trends = () => {
       keyword: "#sachin",
       totalKeywords: "2000k Tweets",
     },
+    {
+      id: 6,
+      isNotIntrested: false,
+      country: "Trending in Sports",
+      keyword: "#Raina",
+      totalKeywords: "2000k Tweets",
+    },
+    {
+      id: 7,
+      isNotIntrested: false,
+      country: "Trending in Sports",
+      keyword: "#Dhawan",
+      totalKeywords: "2000k Tweets",
+    },
+    {
+      id: 8,
+      isNotIntrested: false,
+      country: "Trending in Sports",
+      keyword: "#Sehawag",
+      totalKeywords: "2000k Tweets",
+    },
+    {
+      id: 9,
+      isNotIntrested: false,
+      country: "Trending in Sports",
+      keyword: "#Dk",
+      totalKeywords: "2000k Tweets",
+    },
   ]);
   const [selectedId, setSelectedId] = useState(null);
   const [trending , setTrendings] = useState(isNotIntrested)
