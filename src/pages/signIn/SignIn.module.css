@@ -1,46 +1,109 @@
 .container {
-
     display: flex;
-   
     gap: 3%;
     flex-direction: column;
-   width: 100%;
-    justify-content: center; 
+    width: 100%;
     align-items: center;
-     padding-bottom: 1%;
-     background-color: rgb(247, 247, 247);
-     border-radius: 20px;
-}
-
-    
-.btn{
-    
+    padding-bottom: 0.5%;
+    background-color: rgb(247, 247, 247);
+    border-radius: 20px;
+  }
+  .contain {
+    display: flex;
+   
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0%;
+    background-color: rgb(247, 247, 247);
+    border-radius: 20px;
+  }
+  .icon { 
+    display: flex;
+    justify-content: space-around ;
+    justify-content: start;
+    width: 100%;
+  }
+  
+  .btn {
+    display: flex !important;
     border-radius: 20px !important;
-    width: 50%;
-   margin-bottom: 1rem !important;
+    width: 70%;
+    align-items: center !important;
+    margin-bottom: 0.5rem !important;
     text-transform: none !important;
     background-color: rgb(5, 5, 5) !important;
     color: rgb(246, 246, 246) !important;
- }
-
-.input{
-    width:50% !important;
+  }
+  .stepper {
+    display: flex;
+   
+    gap: 2%;
+    flex-direction: column;
+   width: 70%;
+    justify-content: center; 
+    align-items: center;
+     
+    
+     
+  }
+  
+  .input {
+    width: 70% !important;
     padding: 1px !important;
-  margin-top: 1rem !important;
-   background-color: aliceblue !important;
-    
- }
-    
-.card{
-    
-    margin:5% 30%;
-}
-
-h1{
+    margin-top: 0.5rem !important;
+    background-color: aliceblue !important;
+  }
+  
+  .card {
+    margin: 3% 15%;
+    background-color: rgb(247, 247, 247);
+    border-radius: 20px;
+  }
+  
+  h1 {
     color: rgb(9, 9, 9);
     text-align: center;
-}
-h3{
+  }
+  
+  h3 {
     color: rgb(11, 11, 11);
     text-align: center;
-}
+  }
+  @media only screen and (min-width: 1100px) {
+    .card {
+        margin: 3% 30%;
+        background-color: rgb(247, 247, 247);
+        border-radius: 20px;
+      }
+
+      .contain {
+        display: flex;
+       
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 0%;
+        background-color: rgb(247, 247, 247);
+        border-radius: 20px;
+      }
+      .btn {
+        display: flex !important;
+        border-radius: 20px !important;
+        width: 50%;
+        align-items: center !important;
+        margin-bottom: 0.5rem !important;
+        text-transform: none !important;
+        background-color: rgb(5, 5, 5) !important;
+        color: rgb(246, 246, 246) !important;
+      }
+      .input {
+        width: 50% !important;
+        padding: 1px !important;
+        margin-top: 0.5rem !important;
+        background-color: aliceblue !important;
+      }
+
+    }

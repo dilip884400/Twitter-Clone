@@ -13,11 +13,12 @@ function CreateAccount() {
         <div className={styles.container}>
         <TwitterIcon sx={{ color: "rgb(25 161 242)", fontSize: 45 }} />
         <h1>Join Twitter today</h1>
+        
         <Button className={styles.btn} variant="contained">
           {" "}
           <GoogleIcon /> Signin with Gmail
         </Button>
-        <br />
+        
         <Button className={styles.btn} variant="contained">
           <AppleIcon />
           Sign in with Apple
@@ -27,7 +28,7 @@ function CreateAccount() {
           
           <Stepper className={ styles.stepper}>
             {data.map((label) => (
-              <Step className={ styles.stepper}  key={label}>{label} </Step>
+              <Step   key={label}>{label} </Step>
             ))}
           </Stepper>
          
@@ -47,7 +48,7 @@ function CreateAccount() {
             </p>
           
          
-            <p>Have an account already? <Link className={styles.register} to="/">SignIn</Link></p>
+            <h3>Have an account already? <Link  to="/">SignIn</Link></h3>
          
         
       </div>

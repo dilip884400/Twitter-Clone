@@ -1,5 +1,5 @@
 .root {
-    padding: 1rem 2rem 1rem 10rem;
+    padding: 1rem 2rem 1rem ;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -12,13 +12,14 @@
       display: flex;
       flex-direction: column;
       color: white;
-      margin-left: 7rem;
+      
     }
   .btn{
     
-    margin-right: 3rem;
+   width: 80%;
+    margin: 1rem;
   }
-  .btns{
-    
-    margin-right: 7rem;
-  }
+ .btns{
+  width: 80%;
+  margin-right: 3rem;
+ }

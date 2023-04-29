@@ -8,7 +8,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import AppleIcon from '@mui/icons-material/Apple';
 import { isLogin } from "../Atom"
 import { useRecoilState } from "recoil";
-
+import CloseIcon from '@mui/icons-material/Close';
 
 
 const Login = () => {
@@ -96,23 +96,30 @@ const Login = () => {
   return (
     <div>
       <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
-        <div className={styles.container}>
-          
-            <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
+        
+            <div className={styles.icon}>
+                 <Link  to="/home">  <CloseIcon sx={{fontSize:45,color:"black" }}/></Link>
+            </div>
+            <div className={styles.container}>
+            <div>
+                  <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
+            </div>
             
-                   <h1>Sign in to Twitter</h1>
-              <Button className={styles.btn}  variant="contained">
+               <h1>Sign in to Twitter</h1>
+            <div className={styles.contain}>
+                <Button className={styles.btn}  variant="contained">
                   <GoogleIcon/> Signin with Gmail
-              </Button><br/>
-              <Button className={styles.btn} variant="contained">
-               <AppleIcon /> Sign in with Apple</Button>
-              <form className={styles.container} onSubmit={handlesubmit}>
+                 </Button><br/>
+                <Button className={styles.btn} variant="contained">
+                    <AppleIcon /> Sign in with Apple
+                </Button>
+              </div>
               <Stepper className={ styles.stepper} >
                     {dataa.map((label) => (
                     <Step key={label}>{label} </Step>
                     ))}
                   </Stepper>
-        
+                  <form className={styles.contain} onSubmit={handlesubmit}>
                   <TextField className={styles.input}  type="email"
                     name="email" id="outlined-basic" label="email" variant="outlined"  onChange={handleChange} value={formValues.email}/>
                    <p>{errors.email}</p>

@@ -7,13 +7,64 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import PersonIcon from "@mui/icons-material/Person";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { Button } from "@mui/material";
+import { Button, useMediaQuery } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 
 const LeftSideBar = () => {
+  const isViewportBelow700 = useMediaQuery('(max-width:700px)');
   return (
+<>
+{ isViewportBelow700  ?
+
+<div className={styles.sidebar}>
+<ul className={styles.options}>
+<TwitterIcon  className={styles.option} sx={{ color: "#42a5f5", fontSize: "3rem" }} />
+  <li className={styles.option}>
+    <HomeIcon sx={{ fontSize:35,marginRight:2 }}/>
+   
+  </li>
+  <li className={styles.option}>
+    <TagIcon sx={{ fontSize:35,marginRight:2 }}/>
+    
+  </li>
+  <li className={styles.option}>
+    <NotificationsNoneIcon sx={{ fontSize:35,marginRight:2 }}/>
+   
+  </li>
+  <li className={styles.option}>
+    <MailOutlineIcon sx={{ fontSize:35,marginRight:2 }} />
+    
+  </li>
+  <li className={styles.option}>
+    <BookmarkBorderIcon sx={{ fontSize:35,marginRight:2 }} />
+    
+  </li>
+  <li className={styles.option}>
+    <TwitterIcon sx={{ fontSize:35,marginRight:2 }}/>
+    
+  </li>
+  <li className={styles.option}>
+    <PersonIcon sx={{ fontSize:35 ,marginRight:2}} />
+    
+  </li>
+  <li className={styles.option}>
+    <MoreHorizIcon sx={{ fontSize:35,marginRight:2 }}/>
+    
+  </li>
+  <li className={styles.option}>
+    <AddIcon sx={{ fontSize:35,marginRight:2,backgroundColor:"#42a5f5"}}/>
+    
+  </li>
+  
+</ul>
+
+</div>
+    :
+
+
     <div className={styles.sidebar}>
       <ul className={styles.options}>
-      <TwitterIcon  className={styles.option} sx={{ color: "#42a5f5", fontSize: "3rem" }} />
+      <TwitterIcon  className={styles.option} sx={{ color: "#42a5f5", fontSize: "3rem" ,borderRadius:"20px"}} />
         <li className={styles.option}>
           <HomeIcon sx={{ fontSize:35,marginRight:2 }}/>
           Home
@@ -56,6 +107,8 @@ const LeftSideBar = () => {
       </ul>
      
     </div>
+}
+    </>
   );
 };
 

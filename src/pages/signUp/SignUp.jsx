@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styles from "./SignUp.module.css";
 import { Box, Button, TextField } from "@mui/material";
 import { Days, Month, Year } from "../Data/AtomData/Data"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TwitterIcon from '@mui/icons-material/Twitter';
 
 
@@ -129,7 +129,7 @@ const SignUp = () => {
     <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
       <div className={styles.container} >
       <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
-          <h1>Sign in to Twitter</h1>
+          <h1>Sign Up to Twitter</h1>
         <form onSubmit={(e) => handleSubmit(e)} className={styles.container}>
           <TextField className={styles.input} 
             id="outlined-basic"
@@ -180,10 +180,10 @@ const SignUp = () => {
         </form>
       
 
-      <div className={styles.switch}>
-        <span>Already Have an Account?</span> &nbsp;
-        <span onClick={() => navigate("/")}>Sign In</span>
-      </div>
+      <h3>
+        Already Have an Account? &nbsp;
+        <Link  to="/">Sign In</Link>
+        </h3>
       </div>
       </Box>
     </div>

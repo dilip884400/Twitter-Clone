@@ -1,0 +1,87 @@
+/* Styles for the tweet post container */
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border: 1px solid #ccc;
+    
+    
+  }
+  
+  /* Styles for the user info section */
+  .userIndo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  /* Styles for the user avatar */
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  /* Styles for the user name */
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Styles for the tweet timestamp */
+  p {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+  }
+  
+  /* Styles for the tweet content */
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: 8px;
+  }
+  
+  /* Styles for the tweet image */
+  .image {
+    max-width: 100%;
+    height: auto;
+    
+    margin: 2rem;
+    border-radius: 8px;
+  }
+  .text{
+    max-width: 100%;
+    height: auto;
+    
+    margin: 2rem;
+   
+  
+  }
+  
+  /* Styles for the tweet reach section */
+  .reach {
+    display: flex;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    justify-content: space-between;
+  }
+  
+  /* Styles for the tweet reach icons */
+  .reachIcones {
+    display: flex;
+    align-items: center;
+    color: #777;
+    cursor: pointer;
+  }
+  
+  /* Styles for the tweet reach icon labels */
+  .reachIcones span {
+    font-size: 14px;
+    margin-left: 4px;
+  }
+  
+  

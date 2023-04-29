@@ -2,7 +2,7 @@
   right: 0;
   width:90%;
   color: black;
-  margin-top: 2.4rem;
+ margin: 1rem;
   margin-left: 1rem;
   margin-bottom: 2rem;
   
@@ -12,7 +12,7 @@
  
   border-radius: 5px;
   border-radius: 15px;
-  padding: 3rem;
+  padding-left: 3rem;
  
 }
 .keyword__heading {
