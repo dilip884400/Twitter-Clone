@@ -1,0 +1,20 @@
+.reach{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    
+}
+.image{
+    width: 90%;
+    height:50%;
+    margin: 1rem;
+   
+}
+.reachIcones:hover{
+cursor: pointer;
+}
+.userIndo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
