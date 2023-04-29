@@ -1,22 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HomeLanding from '../../components/landingPage/HomeLanding'
 import LeftSideBar from '../../components/leftSideBar/LeftSideBar'
 import RightSideBar from '../../components/rightSideBar/RightSideBar'
 import Footer from '../../components/footer/Footer'
 import PostTweet from '../../components/postTweet/PostTweet'
 import { isLogin } from "../Atom"
-import { useRecoilValue } from "recoil";
-// export default function Home() {
-//   return (
-//     <div>
-//     {/* <div  style={{ display: 'grid', gridTemplateColumns: '1fr 2fr 1fr' }}>
-//   <LeftSideBar style={{ gridRow: '1 / span 2' }} />
-   
-// </div> */}
-// <div > <PostTweet /></div>
-// </div>
-//   )
-// }
+import { useRecoilValue } from 'recoil'
+
+
 function Home() {
 
   const islogin = useRecoilValue(isLogin);

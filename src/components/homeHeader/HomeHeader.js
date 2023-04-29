@@ -8,9 +8,10 @@ function HomeHeader() {
     <div className={styles.PostTweetHeader}>
         <h1 className={styles.homeHeading}>Home</h1>
         <div className={styles.Headinh}>
-        <h2>For you</h2>
-        <h2>Follwing</h2>
-        </div> 
+        <div><span>For you</span></div>
+        <div><span>Follwing</span></div>
+        
+        </div>
     </div>  
     
   )

@@ -3,13 +3,14 @@
     justify-content:space-around;
     text-align: center;
 }
-.Headinh>h2{
+/* .Headinh>div{
     
     width: 50%;
     height: 100%;
     margin: 0;
     padding: 1rem;
-}
+    border: 2px solid red;
+} */
 .PostTweetHeader{
     position: -webkit-sticky;
     position: sticky;
@@ -19,7 +20,27 @@
    border-bottom: 0.20rem solid rgb(228, 228, 228);
 }
 
-.Headinh>h2:hover{
-    background-color: rgb(228, 228, 228);
-    border-bottom: 0.25rem solid skyblue;
+
+.homeHeading{
+    text-align: left;
+    margin-left: 0.6rem;
+}
+
+.Headinh>div>span{
+    font-weight: 700;
+    font-size: 1rem;
+}
+.Headinh>div{
+    margin: 0%;
+    padding-top: 0.9rem;
+    width: 100%;
+    height: 100%;
+}
+.Headinh>div:hover{
+    background-color: rgb(205, 205, 205);
+}
+.Headinh>div>span:hover{
+    font-weight: 700;
+    font-size: 1rem;
+    border-bottom: 0.2rem solid skyblue;
 }

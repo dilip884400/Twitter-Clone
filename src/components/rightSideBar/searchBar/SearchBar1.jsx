@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import styles from "./SearchBar.module.css";
 
-const SearchBar = () => {
+const SearchBar1 = () => {
   const [query, setQuery] = useState("");
   const [placeholder, setPlaceholder] = useState("Search Twitter");
 
@@ -38,4 +38,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBar1;

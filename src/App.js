@@ -4,7 +4,27 @@ import SignIn from "./pages/signIn/SignIn.jsx";
 import SignUp from "./pages/signUp/SignUp.jsx";
 import Home from "./pages/homePage/Home.jsx";
 import CreateAccount from "./pages/createAccount/CreateAccount";
+import { useRecoilState} from "recoil";
+
+import { useEffect } from "react";
+import { tweetsAtom } from "./recoil/TweetsRecoil";
+import { usersAtom } from "./recoil/UsersRecoil";
+import { fetchTweets } from "./services/Tweets";
+import { fetchUsers } from "./services/Users";
+// import { api } from "./services/Api";
 function App() {
+  const setTweets = useRecoilState(tweetsAtom)
+  const setUsers = useRecoilState(usersAtom)
+  
+    useEffect(()=>{
+      fetchTweets().then((tweets)=>{
+        console.log(tweets)
+       setTweets(tweets)
+      });
+      fetchUsers().then((users)=>{
+       setUsers(users)
+      });
+  },[])
   return (
     <div className="App">
    
