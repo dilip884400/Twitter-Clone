@@ -83,7 +83,7 @@ function Home() {
 
             :
             
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr 1fr" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "0.8fr 1.3fr 1fr" }}>
               <div>
                 {!islogin && <NotLoginLeft style={{ gridRow: '1 / span 2' }} />}
               </div>

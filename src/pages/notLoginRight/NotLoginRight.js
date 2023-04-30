@@ -9,7 +9,7 @@ function NotLogin() {
   const data = ["", "or", ""];
   return (
     <div>
-      <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
+      <Box  className = {styles.card}>
         <div className={styles.container}>
        
         <h1>New On Twitter ?</h1>
@@ -31,16 +31,16 @@ function NotLogin() {
             ))}
           </Stepper>
          
-          <form className={styles.container}>
+          
             
             <Link className={styles.btn} to="/signup">
-              <Button className={styles.btn} variant="contained">
+              <Button sx={{width:"100%"}}className={styles.btn} variant="contained">
                 Create account
               </Button>
               </Link>
             <br />
           
-            </form>
+            
             <p>
               By signing up, you agree to the <a href="#">Terms of Service</a>{" "}
               and <a href="#">Privacy Policy, </a>including Cookie Use.

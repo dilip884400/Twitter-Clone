@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    justify-content: space-between;
   }
   
   /* Styles for the user avatar */
