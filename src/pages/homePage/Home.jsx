@@ -16,13 +16,13 @@ import LoginFooter from '../../components/footer/LoginFooter'
 function Home() {
   const islogin = useRecoilValue(isLogin);
   const isViewportBelow1200 = useMediaQuery('(max-width:1200px)');
-  const isViewportBelow430 = useMediaQuery('(max-width:430px)');
+  const isViewportBelow510 = useMediaQuery('(max-width:510px)');
 
   return (
     <>{
       isViewportBelow1200 ?
 
-                  isViewportBelow430 ?
+                  isViewportBelow510 ?
                           <div>
                             <div style={{ display: "grid", gridTemplateColumns: "1fr" }}>
                                 {islogin && <HomeLanding style={{ gridRow: '2 / span 3' }} />}
@@ -60,7 +60,7 @@ function Home() {
   {
   isViewportBelow1200 ?
     
-          isViewportBelow430 ?
+          isViewportBelow510 ?
 
                         <div style={{ display: "grid", gridTemplateColumns: "1fr" }}>
                               

@@ -354,88 +354,110 @@ function Head() {
   const [text, setText] = useState("");
   const [tweet, setTweet] = useRecoilState(tweetData);
   const [user, setUser] = useRecoilState(userData);
-  function handleChange(e) {
-    setImage(URL.createObjectURL(e.target.files[0]));
-    // console.log(image);
-  }
-  function handleInputChange(e) {
-    setText(e.target.value);
-    // console.log(image);
-  }
-  useEffect(() => {
-    console.log(image);
-  }, [image]);
+
+  
+  
+  
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImage(reader.result);
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
 
   function handleClick() {
-    let userData = JSON.parse(localStorage.getItem("userData"));
-    let username = userData.username;
-    let userObj = {
-      username: username,
-      images:
-        "https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0",
-    };
+    
     let tweetObj = {
       content: text,
-      image: image,
+      images: image,
     };
     Object.preventExtensions(tweetObj);
-    Object.preventExtensions(userObj);
+    
     setTweet([tweetObj, ...tweet]);
-    setUser([userObj, ...user]);
+   
   }
   return (
     <>
-      <div className={styles.postTweet}>
-        <Avatar
-          alt="Remy Sharp"
-          className={styles.avatar}
-          src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
-        />
-        <Button
-          variant="outlined"
-          size="small"
-          sx={{
-            height: "18px",
-            width: "90px",
-            borderRadius: "15px",
-            transformStyle: "none",
-            textTransform: "none",
-            marginLeft: "28px",
-          }}
-        >
-          Everyone
-          <KeyboardArrowDownIcon />
-        </Button>
-      </div>
-      <div className={styles.tweetInput}>
-        <input
-          type="text"
-          placeholder="What's happening"
-          onChange={handleInputChange}
-        />
-      </div>
-      <div className={styles.btn}>
-        <Button
-          variant="outlined"
-          size="small"
-          sx={{
-            height: "18px",
-            width: "190px",
-            borderRadius: "15px",
-            transformStyle: "none",
-            textTransform: "none",
-            border: "none",
-            margin: "0px",
-          }}
-        >
-          <PublicIcon sx={{ height: "15px" }} />
-          Everyone can reply
-        </Button>
-      </div>
-      <div className={styles.Btns}>
-        <div className={styles.btn1}>
-          <label htmlFor="fileInput">
-            <CollectionsIcon
+      <div className={styles.header}>
+        <div className={styles.postTweet}>
+          <Avatar
+            alt="Remy Sharp"
+            className={styles.avatar}
+            src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
+          />
+          <Button
+            variant="outlined"
+            size="small"
+            sx={{
+              height: "18px",
+              width: "90px",
+              borderRadius: "15px",
+              transformStyle: "none",
+              textTransform: "none",
+              marginLeft: "28px",
+            }}
+          >
+            Everyone
+            <KeyboardArrowDownIcon />
+          </Button>
+        </div>
+        <div className={styles.tweetInput}>
+          <input
+            type="text"
+            value={text}
+            placeholder="What's happening"
+            onChange={(event) => setText(event.target.value)}
+          />
+        </div>
+        <div className={styles.button}>
+          <Button
+            variant="outlined"
+            size="small"
+            sx={{
+              height: "18px",
+              width: "30%",
+              borderRadius: "15px",
+              transformStyle: "none",
+              textTransform: "none",
+              border: "none",
+              margin: "0px",
+            }}
+          >
+            <PublicIcon  className={styles.everyone}sx={{ height: "15px" }} />
+            Everyone can reply
+          </Button>
+        </div>
+
+        <div className={styles.Btns}>
+          <div className={styles.btn1}>
+            <hr />
+            <label htmlFor="fileInput">
+              <CollectionsIcon
+                sx={{
+                  height: "20px",
+                  width: "20px",
+                  color: "#1DA1F2",
+                  marginRight: "10px",
+                  padding: "5px",
+                  borderRadius: "15px",
+                  "&:hover": {
+                    backgroundColor: "lightskyblue",
+                  },
+                }}
+              />
+            </label>
+            <input
+              id="fileInput"
+              type="file"
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={handleImageChange}
+            />
+            <GifIcon
               sx={{
                 height: "20px",
                 width: "20px",
@@ -448,94 +470,74 @@ function Head() {
                 },
               }}
             />
-          </label>
-          <input
-            id="fileInput"
-            type="file"
-            accept="image/*"
-            style={{ display: "none" }}
-            onChange={handleChange}
-          />
-          <GifIcon
-            sx={{
-              height: "20px",
-              width: "20px",
-              color: "#1DA1F2",
-              marginRight: "10px",
-              padding: "5px",
-              borderRadius: "15px",
-              "&:hover": {
-                backgroundColor: "lightskyblue",
-              },
-            }}
-          />
-          <PollIcon
-            sx={{
-              height: "20px",
-              width: "20px",
-              color: "#1DA1F2",
-              marginRight: "10px",
-              padding: "5px",
-              borderRadius: "15px",
-              "&:hover": {
-                backgroundColor: "lightskyblue",
-              },
-            }}
-          />
-          <SentimentSatisfiedAltIcon
-            sx={{
-              height: "20px",
-              width: "20px",
-              color: "#1DA1F2",
-              marginRight: "10px",
-              padding: "5px",
-              borderRadius: "15px",
-              "&:hover": {
-                backgroundColor: "lightskyblue",
-              },
-            }}
-          />
-          <DateRangeIcon
-            sx={{
-              height: "20px",
-              width: "20px",
-              color: "#1DA1F2",
-              marginRight: "10px",
-              padding: "5px",
-              borderRadius: "15px",
-              "&:hover": {
-                backgroundColor: "lightskyblue",
-              },
-            }}
-          />
-          <LocationOnIcon
-            sx={{
-              height: "20px",
-              width: "20px",
-              color: "#1DA1F2",
-              marginRight: "10px",
-              padding: "5px",
-              borderRadius: "15px",
-              "&:hover": {
-                backgroundColor: "lightskyblue",
-              },
-            }}
-          />
-        </div>
-        <div className={styles.btn2}>
-          <Button
-            sx={{
-              backgroundColor: "#1DA1F2",
-              color: "White",
-              borderRadius: "20px",
-              "&:hover": {
-                backgroundColor: "#0e8db7",
-              },
-            }}
-            onClick={handleClick}
-          >
-            Tweet
-          </Button>
+            <PollIcon
+              sx={{
+                height: "20px",
+                width: "20px",
+                color: "#1DA1F2",
+                marginRight: "10px",
+                padding: "5px",
+                borderRadius: "15px",
+                "&:hover": {
+                  backgroundColor: "lightskyblue",
+                },
+              }}
+            />
+            <SentimentSatisfiedAltIcon
+              sx={{
+                height: "20px",
+                width: "20px",
+                color: "#1DA1F2",
+                marginRight: "10px",
+                padding: "5px",
+                borderRadius: "15px",
+                "&:hover": {
+                  backgroundColor: "lightskyblue",
+                },
+              }}
+            />
+            <DateRangeIcon
+              sx={{
+                height: "20px",
+                width: "20px",
+                color: "#1DA1F2",
+                marginRight: "10px",
+                padding: "5px",
+                borderRadius: "15px",
+                "&:hover": {
+                  backgroundColor: "lightskyblue",
+                },
+              }}
+            />
+            <LocationOnIcon
+              sx={{
+                height: "20px",
+                width: "20px",
+                color: "#1DA1F2",
+                marginRight: "10px",
+                padding: "5px",
+                borderRadius: "15px",
+                "&:hover": {
+                  backgroundColor: "lightskyblue",
+                },
+              }}
+            />
+          </div>
+          <div className={styles.btn2}>
+            <Button
+              sx={{
+                backgroundColor: "#1DA1F2",
+                color: "White",
+                borderRadius: "20px",
+                "&:hover": {
+                  backgroundColor: "#0e8db7",
+                },
+              }}
+              onClick={handleClick}
+            >
+              Tweet
+            </Button>
+          </div>
         </div>
       </div>
     </>

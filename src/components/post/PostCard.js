@@ -5,7 +5,7 @@ import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { Avatar } from "@mui/material";
 import { isLogin } from "../../pages/Atom";
 import { useRecoilValue } from "recoil";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FiDownload } from "react-icons/fi";
 
 

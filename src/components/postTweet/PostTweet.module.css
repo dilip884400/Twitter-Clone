@@ -127,11 +127,9 @@ button.active {
   border-radius: 8px;
 }
 .text{
-  max-width: 100%;
-  height: auto;
-  
-  margin-right: 2rem;
-  margin-left: 2rem
+  display: flex;
+justify-content: start;
+margin-left: 5rem;
 }
 .h3 {
   font-size: 25px;

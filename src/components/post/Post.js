@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Post.module.css'
-import { Avatar, Box } from '@mui/material'
+import {  Box } from '@mui/material'
 import { useRecoilValue } from 'recoil'
 import { tweetsAtom } from '../../recoil/TweetsRecoil'
 import { usersAtom } from '../../recoil/UsersRecoil'

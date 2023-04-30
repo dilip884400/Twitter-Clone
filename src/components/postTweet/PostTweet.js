@@ -9,12 +9,15 @@ import PollIcon from "@mui/icons-material/Poll";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { AiFillHeart, AiOutlineAreaChart } from "react-icons/ai";
+import {  AiOutlineAreaChart } from "react-icons/ai";
 import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { FiDownload } from "react-icons/fi";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import {  tweetData } from "../leftSideBar/tweetData";
+import { useRecoilValue } from "recoil";
 
 export default function PostTweet() {
+  const twee = useRecoilValue(tweetData);
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
   const [likeColor, setLikeColor] = useState("black");
@@ -33,7 +36,7 @@ export default function PostTweet() {
   }
 
   function handleCommentCount() {
-    if (retweetColor == "") {
+    if (retweetColor === "") {
       setCommentCount(1);
       setRetweetColor("blue")
     } else {
@@ -266,6 +269,48 @@ export default function PostTweet() {
           </div>
         ))}
       </div>
+
+        <div>
+        {twee.map((twee,inde) => (
+           <div key={inde}>
+           <div className={styles.teetInfo}>
+             <Avatar
+               alt="Remy Sharp"
+               className={styles.avatar}
+               src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
+             />
+             <h3 className={styles.h3}>Darshan4943</h3>
+            
+           </div>
+           <p className={styles.text}>{twee.content}</p>
+           <div className={styles.image}>
+              {twee.image && (
+                <img className={styles.image} src={twee.image} alt="Tweet" />
+              )}
+            </div>
+           <div className={styles.tweetInfo}>
+             <div className={styles.Like} onClick={handleLikeCount}>
+               <FavoriteIcon style={{ color: likeColor }} />
+               {likeCount}
+             </div>
+             <div className={styles.Retweet} onClick={handleCommentCount}>
+               <BiRepost style={{ color: retweetColor }} />
+               {commentCount}
+             </div>
+             <div className={styles.tweetBtn}>
+               <BiMessageRounded />
+               {0}
+             </div>
+             <div className={styles.tweetBtn}>
+               <AiOutlineAreaChart />
+             </div>
+             <div className={styles.tweetBtn}>
+               <FiDownload />
+             </div>
+           </div>
+         </div>
+        ))}
+    </div>
     </div>
   );
 }
