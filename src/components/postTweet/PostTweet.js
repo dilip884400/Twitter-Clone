@@ -213,9 +213,13 @@ export default function PostTweet() {
             <div className={styles.image}>
             {tweet.image && <img  className={styles.image} src={tweet.image} alt="Tweet" />}
             </div>
+           
           </div>
+          
         ))}
+        <hr></hr> 
       </div>
+      
     </div>
   );
 }

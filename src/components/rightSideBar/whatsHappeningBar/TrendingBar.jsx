@@ -93,7 +93,7 @@ const Trends = () => {
                   {keyword.totalKeywords}
                 </div>
               </div>
-              <div className={style.btn}>
+              <div className={style.btn1}>
               <Dialog2
                   onClick={HandleClick}
                   title={

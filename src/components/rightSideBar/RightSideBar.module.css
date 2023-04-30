@@ -1,8 +1,8 @@
 .RightSideBar{
-    border: 2px solid rgb(234, 228, 228);
+    margin-left: 2rem;
     height: 100vh;
     position: fixed;
-    width: 29%;
+    width: 20%;
     top: 0;
    
 }

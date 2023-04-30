@@ -12,7 +12,7 @@
  
   border-radius: 5px;
   border-radius: 15px;
-  padding-left: 3rem;
+  padding-left: 1rem;
  
 }
 .keyword__heading {
@@ -24,7 +24,7 @@
 }
 .country {
   font-size: 0.875rem;
-  color: #536471;
+  color: #2e7dba;
   font-weight: 300;
 }
 
@@ -44,11 +44,11 @@
   padding: 0.5rem 0.50rem;
 }
 .container:hover{
-  background-color: #EFF1F1;
+  background-color: #b7baba;
 }
 
 .btn1{
-  color: white;
+  color: rgb(18, 16, 16);
   background-color: transparent;
   border: none;
   outline: none;

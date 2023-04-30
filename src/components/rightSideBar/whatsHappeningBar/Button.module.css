@@ -17,11 +17,11 @@
 }
 
 .btndot{
-    color: white;
+    color: rgb(147, 32, 32);
 }
 
 .btn2text{
-    color: white;
+    color: rgb(107, 107, 107);
     gap: 0.2rem;
     font-size: smaller;
 }
