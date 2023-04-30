@@ -1,40 +1,49 @@
 import React, { useState } from "react";
 import styles from "./PostCard.module.css";
-import { AiFillHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineAreaChart } from "react-icons/ai";
 import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { Avatar } from "@mui/material";
 import { isLogin } from "../../pages/Atom";
 import { useRecoilValue } from "recoil";
 import { Link, Navigate } from "react-router-dom";
+import { FiDownload } from "react-icons/fi";
 
 
 export default function PostCard(props) {
   const islogin = useRecoilValue(isLogin);
   const [likeCount, setLikeCount] = useState(props.tweet.likeCount);
-  const [likeColor, setLikeColor] = useState("black");
+  const [likeColor, setLikeColor] = useState("");
   const [retweetCount, setRetweetCount] = useState(props.tweet.reTweetsCount);
-  const [retweetColor, setRetweetColor] = useState("black");
+  const [retweetColor, setRetweetColor] = useState("");
   const tweet = props.tweet;
 
   const handleLikeClick = () => {
-    if (likeColor === "black") {
+    if (likeColor === "") {
       setLikeCount(likeCount + 1);
       setLikeColor("red");
     } else {
       setLikeCount(likeCount - 1);
-      setLikeColor("black");
+      setLikeColor("");
     }
   };
 
   const handleRetweetClick = () => {
-    if (retweetColor === "black") {
+    if (retweetColor === "") {
       setRetweetCount(retweetCount + 1);
       setRetweetColor("blue");
     } else {
       setRetweetCount(retweetCount - 1);
-      setRetweetColor("black");
+      setRetweetColor("");
     }
   };
+
+  const handleDownloadClick = () => {
+    const link = document.createElement('a');
+    link.download = 'image.png';
+    link.href = tweet.image;
+    link.click();
+  }
+  
 
   
 
@@ -45,10 +54,10 @@ export default function PostCard(props) {
       !islogin ?
                 <div className={styles.postContainer}>
                 <div className={styles.userIndo}>
-                  <Avatar src="https://i.pravatar.cc" />
+                  <Avatar className={styles.avatar} src="https://i.pravatar.cc" />
                     
-                  <h3>{tweet.tweetedBy.name}</h3>
-                  <p>{tweet.createdAt}</p>
+                  <h3 className={styles.h3}>{tweet.tweetedBy.name}</h3>
+                  <p className={styles.p}>{tweet.createdAt}</p>
                 </div>
                 <p className={styles.text}>{tweet.content}</p>
                 <img className={styles.image} src={tweet.image} alt="" />
@@ -65,15 +74,21 @@ export default function PostCard(props) {
                     <Link  to="/"> <BiMessageRounded /></Link>
                       {tweet.commentCount}
                     </div>
+                          <div className={styles.reachIcones}>
+                <AiOutlineAreaChart />
+              </div>
+              <div className={styles.reachIcones} onClick={handleDownloadClick}>
+                <FiDownload />
+              </div>
                   </div>
                 </div>
           :
                 <div className={styles.postContainer}>
                   <div className={styles.userIndo}>
-                    <Avatar src="https://i.pravatar.cc" />
+                    <Avatar className={styles.avatar}  src="https://i.pravatar.cc" />
                       
-                    <h3>{tweet.tweetedBy.name}</h3>
-                    <p>{tweet.createdAt}</p>
+                    <h3 className={styles.h3}>{tweet.tweetedBy.name}</h3>
+                    <p className={styles.p}>{tweet.createdAt}</p>
                   </div>
                   <p className={styles.text}>{tweet.content}</p>
                   <img className={styles.image} src={tweet.image} alt="" />
@@ -90,6 +105,12 @@ export default function PostCard(props) {
                       <BiMessageRounded />
                       {tweet.commentCount}
                     </div>
+                    <div className={styles.reachIcones}>
+                <AiOutlineAreaChart />
+              </div>
+              <div className={styles.reachIcones} onClick={handleDownloadClick}>
+                <FiDownload />
+              </div>
                   </div>
                 </div>
   }

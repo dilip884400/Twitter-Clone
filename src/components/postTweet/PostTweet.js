@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import styles from './PostTweet.module.css';
-import { Avatar, Button } from '@mui/material';
+import React, { useState } from "react";
+import styles from "./PostTweet.module.css";
+import { Avatar, Button } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PublicIcon from "@mui/icons-material/Public";
 import CollectionsIcon from "@mui/icons-material/Collections";
@@ -9,21 +9,48 @@ import PollIcon from "@mui/icons-material/Poll";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { AiFillHeart, AiOutlineAreaChart } from "react-icons/ai";
+import { BiMessageRounded, BiRepost } from "react-icons/bi";
+import { FiDownload } from "react-icons/fi";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 export default function PostTweet() {
-  const [tweetText, setTweetText] = useState('');
+  const [likeCount, setLikeCount] = useState(0);
+  const [commentCount, setCommentCount] = useState(0);
+  const [likeColor, setLikeColor] = useState("black");
+  const [retweetColor, setRetweetColor] = useState("");
+  const [tweetText, setTweetText] = useState("");
   const [tweetImage, setTweetImage] = useState(null);
   const [tweets, setTweets] = useState([]);
+  function handleLikeCount() {
+    if (likeColor === "black") {
+      setLikeCount(1);
+      setLikeColor("red");
+    } else {
+      setLikeCount(0);
+      setLikeColor("black");
+    }
+  }
+
+  function handleCommentCount() {
+    if (retweetColor == "") {
+      setCommentCount(1);
+      setRetweetColor("blue")
+    } else {
+      setCommentCount(0);
+      setRetweetColor("")
+    }
+  }
 
   const handleTweet = (event) => {
     event.preventDefault();
     const newTweet = {
       text: tweetText,
       image: tweetImage,
-      time: new Date().toLocaleString()
+      time: new Date().toLocaleString(),
     };
     setTweets([newTweet, ...tweets]);
-    setTweetText('');
+    setTweetText("");
     setTweetImage(null);
   };
 
@@ -39,10 +66,8 @@ export default function PostTweet() {
   };
 
   return (
-   <div>
-      
+    <div>
       <div className={styles.header}>
-        
         <div className={styles.postTweet}>
           <Avatar
             alt="Remy Sharp"
@@ -70,7 +95,7 @@ export default function PostTweet() {
             type="text"
             value={tweetText}
             placeholder="What's happening"
-            onChange={(event)=>setTweetText(event.target.value)}
+            onChange={(event) => setTweetText(event.target.value)}
           />
         </div>
         <div className={styles.btn}>
@@ -90,13 +115,11 @@ export default function PostTweet() {
             <PublicIcon sx={{ height: "15px" }} />
             Everyone can reply
           </Button>
-         
         </div>
-       
+
         <div className={styles.Btns}>
-       
           <div className={styles.btn1}>
-          <hr/>
+            <hr />
             <label htmlFor="fileInput">
               <CollectionsIcon
                 sx={{
@@ -201,25 +224,48 @@ export default function PostTweet() {
             </Button>
           </div>
         </div>
-       
       </div>
-      <div className={styles.tweet} >
+      <div className={styles.tweet}>
         {tweets.map((tweet, index) => (
           <div key={index}>
-            <div >
-              <p>{tweet.text}</p>
-              <small>{tweet.time}</small>
-            </div >
-            <div className={styles.image}>
-            {tweet.image && <img  className={styles.image} src={tweet.image} alt="Tweet" />}
+            <div className={styles.teetInfo}>
+              <Avatar
+                alt="Remy Sharp"
+                className={styles.avatar}
+                src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
+              />
+              <h3 className={styles.h3}>Darshan4943</h3>
+              <small className={styles.p} >{tweet.time}</small>
             </div>
-           
+            <p className={styles.text}>{tweet.text}</p>
+            <div className={styles.image}>
+              {tweet.image && (
+                <img className={styles.image} src={tweet.image} alt="Tweet" />
+              )}
+            </div>
+            <div className={styles.tweetInfo}>
+              <div className={styles.Like} onClick={handleLikeCount}>
+                <FavoriteIcon style={{ color: likeColor }} />
+                {likeCount}
+              </div>
+              <div className={styles.Retweet} onClick={handleCommentCount}>
+                <BiRepost style={{ color: retweetColor }} />
+                {commentCount}
+              </div>
+              <div className={styles.tweetBtn}>
+                <BiMessageRounded />
+                {0}
+              </div>
+              <div className={styles.tweetBtn}>
+                <AiOutlineAreaChart />
+              </div>
+              <div className={styles.tweetBtn}>
+                <FiDownload />
+              </div>
+            </div>
           </div>
-          
         ))}
-        <hr></hr> 
       </div>
-      
     </div>
   );
 }

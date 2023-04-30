@@ -1,7 +1,5 @@
-
-import  PopupState, { popupState } from "material-ui-popup-state";
-
-import styles from "./LeftSideBar.module.css";
+import React, { useState } from "react";
+import styles from "./SideBar.module.css";
 import HomeIcon from "@mui/icons-material/Home";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -10,14 +8,8 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import PersonIcon from "@mui/icons-material/Person";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { Box, Button, Dialog, Popover, useMediaQuery } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
-import { Avatar } from "antd";
-import { isLogin, tweetData, userData } from "../../pages/Atom";
-import { useRecoilState } from "recoil";
-import React, { useEffect, useState } from "react";
-import { bindPopover, bindTrigger } from "material-ui-popup-state";
-import { useNavigate } from "react-router-dom";
+import { Box, Button, Modal } from "@mui/material";
+import { Avatar } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PublicIcon from "@mui/icons-material/Public";
 import CollectionsIcon from "@mui/icons-material/Collections";
@@ -26,203 +18,74 @@ import PollIcon from "@mui/icons-material/Poll";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { useRecoilState } from "recoil";
+import { isLogin, tweetData, userData } from "../../recoilAtom/Atom";
+import { useEffect } from "react";
+import Popover from "@mui/material/Popover";
+import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 500,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 const LeftSideBar = () => {
-  const isViewportBelow700 = useMediaQuery('(max-width:700px)');
-
   const [islogin, setisLogin] = useRecoilState(isLogin);
-  
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [logOutopen, setlogOutopen] = React.useState(false);
   const handlelogOutOpen = () => setlogOutopen(true);
   const handlelogOutClose = () => setlogOutopen(false);
-  // let nam = JSON.parse(localStorage.getItem("name"));
-  // let names = nam.name;
-  let Navigate=useNavigate()
+  let name = JSON.parse(localStorage.getItem("userData"));
+  let names = name.username;
+
   function handleLogout() {
     setisLogin(false);
-    Navigate("/")
-    
   }
   return (
-<>
-{ isViewportBelow700  ?
-
-<div className={styles.sidebar}>
-<ul className={styles.options}>
-<TwitterIcon  className={styles.option} sx={{ color: "#42a5f5", fontSize: "3rem" }} />
-  <li className={styles.option}>
-    <HomeIcon sx={{ fontSize:35,marginRight:2 }}/>
-   
-  </li>
-  <li className={styles.option}>
-    <TagIcon sx={{ fontSize:35,marginRight:2 }}/>
-    
-  </li>
-  <li className={styles.option}>
-    <NotificationsNoneIcon sx={{ fontSize:35,marginRight:2 }}/>
-   
-  </li>
-  <li className={styles.option}>
-    <MailOutlineIcon sx={{ fontSize:35,marginRight:2 }} />
-    
-  </li>
-  <li className={styles.option}>
-    <BookmarkBorderIcon sx={{ fontSize:35,marginRight:2 }} />
-    
-  </li>
-  <li className={styles.option}>
-    <TwitterIcon sx={{ fontSize:35,marginRight:2 }}/>
-    
-  </li>
-  <li className={styles.option}>
-    <PersonIcon sx={{ fontSize:35 ,marginRight:2}} />
-    
-  </li>
-  <li className={styles.option}>
-    <MoreHorizIcon sx={{ fontSize:35,marginRight:2 }}/>
-    
-  </li>
-  <li className={styles.option}>
-    <AddIcon  onClick={handleOpen} sx={{ fontSize:35,marginRight:2,backgroundColor:"#42a5f5"}}/>
-    <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={styles}>
-            <Head />
-          </Box>
-        </Dialog>
-    
-  </li>
-  <PopupState
-          variant="popover"
-          popupId="demo-popup-popover"
-          sx={{ backgroundColor: "red" }}
-        >
-          {(popupState) => (
-            <div>
-              <Button
-                // variant="contained"
-                {...bindTrigger(popupState)}
-                sx={{
-                  textTransform: "none",
-                  borderRadius: "5rem",
-                  marginTop: "10rem",
-                  left:"40%",
-                  width: "100%",
-                 backgroundColor:"rgb(193, 186, 186)",
-                  "&:hover": {
-                    backgroundColor: "black",
-                  },
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    // justifyContent: "space-between",
-                    width: "100%",
-                  }}
-                >
-                  <Avatar
-                    alt="Remy Sharp"
-                    className={styles.avatar}
-                    src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
-                  />
-                  <div>
-                 
-                  </div>
-                </div>
-                <MoreHorizIcon />
-              </Button>
-              <Popover
-                {...bindPopover(popupState)}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "center",
-                }}
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "center",
-                }}
-                sx={{ height: "200px" }}
-              >
-                <Button
-                  sx={{ display: "block", width: "100%" }}
-                 
-                >
-                  ADD
-                </Button>
-                <Dialog
-                  open={logOutopen}
-                  onClose={handlelogOutClose}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={styles}>
-                    <p style={{ width: "100%", textAlign: "center" }}>
-                      <TwitterIcon sx={{ color: "#42a5f5" }} />
-                    </p>
-                    <h2 style={{ width: "100%", textAlign: "center" }}>
-                      Log out of Twitter?
-                    </h2>
-                    <p>
-                      You can always log back in at any time. If you just want
-                      to switch accounts, you can do that by adding an existing
-                      account.
-                    </p>
-                    <Button onClick={handleLogout}>Logout</Button>
-                    <Button onClose={handlelogOutClose}>Cancle</Button>
-                  </Box>
-                </Dialog>
-                <Button onClick={handlelogOutOpen}>Logout</Button>
-              </Popover>
-            </div>
-          )}
-        </PopupState>
-</ul>
-
-</div>
-    :
-
-
     <div className={styles.sidebar}>
       <ul className={styles.options}>
-      <TwitterIcon  className={styles.option} sx={{ color: "#42a5f5", fontSize: "3rem" ,borderRadius:"20px"}} />
+        <TwitterIcon
+          className={styles.option}
+          sx={{ color: "#42a5f5", fontSize: "3rem" }}
+        />
         <li className={styles.option}>
-          <HomeIcon sx={{ fontSize:35,marginRight:2 }}/>
+          <HomeIcon sx={{ fontSize: 35, marginRight: 2 }} />
           Home
         </li>
         <li className={styles.option}>
-          <TagIcon sx={{ fontSize:35,marginRight:2 }}/>
-          Explore
+          <TagIcon sx={{ fontSize: 35, marginRight: 2 }} />
+          Expolre
         </li>
         <li className={styles.option}>
-          <NotificationsNoneIcon sx={{ fontSize:35,marginRight:2 }}/>
+          <NotificationsNoneIcon sx={{ fontSize: 35, marginRight: 2 }} />
           Notifications
         </li>
         <li className={styles.option}>
-          <MailOutlineIcon sx={{ fontSize:35,marginRight:2 }} />
+          <MailOutlineIcon sx={{ fontSize: 35, marginRight: 2 }} />
           Message
         </li>
         <li className={styles.option}>
-          <BookmarkBorderIcon sx={{ fontSize:35,marginRight:2 }} />
+          <BookmarkBorderIcon sx={{ fontSize: 35, marginRight: 2 }} />
           Bookmarks
         </li>
         <li className={styles.option}>
-          <TwitterIcon sx={{ fontSize:35,marginRight:2 }}/>
+          <TwitterIcon sx={{ fontSize: 35, marginRight: 2 }} />
           Twitter Blue
         </li>
         <li className={styles.option}>
-          <PersonIcon sx={{ fontSize:35 ,marginRight:2}} />
+          <PersonIcon sx={{ fontSize: 35, marginRight: 2 }} />
           Profile
         </li>
         <li className={styles.option}>
-          <MoreHorizIcon sx={{ fontSize:35,marginRight:2 }}/>
+          <MoreHorizIcon sx={{ fontSize: 35, marginRight: 2 }} />
           More
         </li>
         <Button
@@ -234,23 +97,22 @@ const LeftSideBar = () => {
             borderRadius: "5rem",
             height: "3rem",
             fontSize: "28px",
-            width: "70%",
+            width: "100%",
             backgroundColor: "#42a5f5",
-            marginLeft:"35%"
           }}
         >
           Tweet
         </Button>
-        <Dialog
+        <Modal
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={styles}>
+          <Box sx={style}>
             <Head />
           </Box>
-        </Dialog>
+        </Modal>
         <PopupState
           variant="popover"
           popupId="demo-popup-popover"
@@ -264,12 +126,11 @@ const LeftSideBar = () => {
                 sx={{
                   textTransform: "none",
                   borderRadius: "5rem",
-                  marginTop: "10rem",
-                  left:"40%",
+                  marginTop: "10px",
                   width: "100%",
-                 backgroundColor:"rgb(193, 186, 186)",
+                  marginLeft: "1 rem",
                   "&:hover": {
-                    backgroundColor: "black",
+                    backgroundColor: "#fff",
                   },
                 }}
               >
@@ -286,8 +147,8 @@ const LeftSideBar = () => {
                     src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
                   />
                   <div>
-                  <span style={{ display: "block" }}></span>
-                    <span style={{ fontSize: "20px" }}>@Darshan4943</span>
+                    <span style={{ display: "block" }}>{names}</span>
+                    <span>@{names}</span>
                   </div>
                 </div>
                 <MoreHorizIcon />
@@ -306,25 +167,42 @@ const LeftSideBar = () => {
               >
                 <Button
                   sx={{ display: "block", width: "100%" }}
-                 
+                  onClick={handlelogOutOpen}
                 >
                   ADD
                 </Button>
-                <Button onClick={handlelogOutOpen}>Logout</Button>
-                <Dialog
+                <Modal
                   open={logOutopen}
                   onClose={handlelogOutClose}
                   aria-labelledby="modal-modal-title"
                   aria-describedby="modal-modal-description"
                 >
-                  <Box sx={styles}>
-                    <p style={{ width: "100%", textAlign: "center" }}>
+                  <Box sx={style}>
+                    <p
+                      style={{
+                        width: "100%",
+                        textAlign: "center",
+                        color: "black",
+                      }}
+                    >
                       <TwitterIcon sx={{ color: "#42a5f5" }} />
                     </p>
-                    <h2 style={{ width: "100%", textAlign: "center" }}>
+                    <h1
+                      style={{
+                        width: "100%",
+                        textAlign: "center",
+                        color: "black",
+                      }}
+                    >
                       Log out of Twitter?
-                    </h2>
-                    <p>
+                    </h1>
+                    <p
+                      style={{
+                        textAlign: "center",
+                        fontSize: "20px",
+                        color: "black",
+                      }}
+                    >
                       You can always log back in at any time. If you just want
                       to switch accounts, you can do that by adding an existing
                       account.
@@ -332,18 +210,14 @@ const LeftSideBar = () => {
                     <Button onClick={handleLogout}>Logout</Button>
                     <Button onClose={handlelogOutClose}>Cancle</Button>
                   </Box>
-                </Dialog>
-               
+                </Modal>
+                <Button onClick={handlelogOutOpen}>Logout</Button>
               </Popover>
             </div>
           )}
         </PopupState>
       </ul>
-      
-     
     </div>
-}
-    </>
   );
 };
 
