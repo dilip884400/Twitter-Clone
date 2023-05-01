@@ -97,13 +97,13 @@ const Trends = () => {
               <Dialog2
                   onClick={HandleClick}
                   title={
-                    <div>
+                    <div >
                       <SentimentVeryDissatisfiedIcon /> This trend is harmful or
                       spammy
                     </div>
                   }
                   content={
-                    <p>
+                    <p className={style.p1}>
                       <SentimentVeryDissatisfiedIcon />
                       IsnotIntrested
                     </p>
