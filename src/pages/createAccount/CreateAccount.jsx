@@ -16,12 +16,12 @@ function CreateAccount() {
         
         <Button className={styles.btn} variant="contained">
           {" "}
-          <GoogleIcon /> Signin with Gmail
+          <GoogleIcon /> Sig Up with Gmail
         </Button>
         
         <Button className={styles.btn} variant="contained">
           <AppleIcon />
-          Sign in with Apple
+          Sign Up with Apple
         </Button>
         
         

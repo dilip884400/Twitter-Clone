@@ -15,12 +15,12 @@ function NotLogin() {
         <h1>New On Twitter ?</h1>
         <Button className={styles.btn} variant="contained">
           {" "}
-          <GoogleIcon /> Signin with Gmail
+          <GoogleIcon /> SignUp with Gmail
         </Button>
         <br />
         <Button className={styles.btn} variant="contained">
           <AppleIcon />
-          Sign in with Apple
+          SignUp with Apple
         </Button>
         
         

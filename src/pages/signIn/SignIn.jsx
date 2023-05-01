@@ -55,7 +55,7 @@ const Login = () => {
       setTimeout(() => {
         Navigate("/home");
         setLogin(true)
-      }, 500);
+      }, 1000);
     } else {
       setIsuser("something went wrong");
     }

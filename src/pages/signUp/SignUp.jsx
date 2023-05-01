@@ -120,7 +120,7 @@ const SignUp = () => {
       alert("registeration success");
       users.push(data);
       localStorage.setItem("users", JSON.stringify(users));
-      localStorage.setItem("name", JSON.stringify(data.name))
+      
       navigate("/")
     }
   }

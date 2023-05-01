@@ -48,6 +48,8 @@ const Trends = () => {
   const [isShowingAllTrendings, setIsShowingAllTrendings] = useState(true)
   const updateId = (id) => setSelectedId(id);
   const[data,setData]=useState([...trending])
+
+  
   const HandleClick = () => {
     const tempArr = [];
     trending.forEach((el) => {
