@@ -287,7 +287,7 @@ const LeftSideBar = () => {
                   />
                   <div>
                   <span style={{ display: "block" }}></span>
-                    <span style={{ fontSize: "20px" }}>@Darshan4943</span>
+                    <span style={{ fontSize: "20px" }}>@Dilip</span>
                   </div>
                 </div>
                 <MoreHorizIcon />

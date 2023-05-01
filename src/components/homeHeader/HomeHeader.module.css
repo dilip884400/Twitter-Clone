@@ -2,19 +2,14 @@
     display: flex;
     justify-content:space-around;
     text-align: center;
+    
 }
 .homeHeading{
     display: flex;
     justify-content: flex-start;
     margin-left: 1rem;
 }
-.Headinh>h2{
-    
-    width: 50%;
-    height: 100%;
-    margin: 0;
-    padding: 1rem;
-}
+
 .PostTweetHeader{
     position: -webkit-sticky;
     position: sticky;
@@ -23,8 +18,24 @@
    z-index: 1;
    border-bottom: 1px solid black;
 }
-
-.Headinh>h2:hover{
-    background-color: rgb(228, 228, 228);
-    border-bottom: 0.25rem solid skyblue;
+.headingDiv{
+    margin: 0;
+    width: 50%;
+    padding-top: 2rem;
 }
+.headingSpan{
+   
+    margin-bottom: 0;
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-align: center;
+   
+}
+.headingSpan:hover{
+    border-bottom:0.4rem solid rgb(79, 173, 255);
+}
+.headingDiv:hover{
+    background-color: rgb(235, 235, 235);
+}
+
+

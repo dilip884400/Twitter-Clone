@@ -25,6 +25,7 @@ export default function PostTweet() {
   const [tweetText, setTweetText] = useState("");
   const [tweetImage, setTweetImage] = useState(null);
   const [tweets, setTweets] = useState([]);
+  let time = new Date().toLocaleString()
   function handleLikeCount() {
     if (likeColor === "black") {
       setLikeCount(1);
@@ -75,7 +76,7 @@ export default function PostTweet() {
           <Avatar
             alt="Remy Sharp"
             className={styles.avatar}
-            src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
+            src="https://media.licdn.com/dms/image/D5603AQEw7sH02YKzPw/profile-displayphoto-shrink_800_800/0/1675929751081?e=1688601600&v=beta&t=B8GUWff659ezmBrwH908IJQ0MlJqoasZG5CIsLL1uvA"
           />
           <Button
             variant="outlined"
@@ -230,14 +231,14 @@ export default function PostTweet() {
       </div>
       <div className={styles.tweet}>
         {tweets.map((tweet, index) => (
-          <div key={index}>
+          <div className={styles.postTweetMainCard} key={index}>
             <div className={styles.teetInfo}>
               <Avatar
                 alt="Remy Sharp"
                 className={styles.avatar}
-                src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
+                src="https://media.licdn.com/dms/image/D5603AQEw7sH02YKzPw/profile-displayphoto-shrink_800_800/0/1675929751081?e=1688601600&v=beta&t=B8GUWff659ezmBrwH908IJQ0MlJqoasZG5CIsLL1uvA"
               />
-              <h3 className={styles.h3}>Darshan4943</h3>
+              <h3 className={styles.h3}>Dilip Lovevanshi</h3>
               <small className={styles.p} >{tweet.time}</small>
             </div>
             <p className={styles.text}>{tweet.text}</p>
@@ -269,18 +270,17 @@ export default function PostTweet() {
           </div>
         ))}
       </div>
-
         <div>
         {twee.map((twee,inde) => (
-           <div key={inde}>
+           <div className={styles.postTweetMainCard} key={inde}>
            <div className={styles.teetInfo}>
              <Avatar
                alt="Remy Sharp"
                className={styles.avatar}
-               src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
+               src="https://media.licdn.com/dms/image/D5603AQEw7sH02YKzPw/profile-displayphoto-shrink_800_800/0/1675929751081?e=1688601600&v=beta&t=B8GUWff659ezmBrwH908IJQ0MlJqoasZG5CIsLL1uvA"
              />
-             <h3 className={styles.h3}>Darshan4943</h3>
-            
+             <h3 className={styles.h3}>Dilip Lovevanshi</h3>
+             <p className={styles.p} >{time}</p>
            </div>
            <p className={styles.text}>{twee.content}</p>
            <div className={styles.image}>
@@ -288,7 +288,7 @@ export default function PostTweet() {
                 <img className={styles.image} src={twee.image} alt="Tweet" />
               )}
             </div>
-           <div className={styles.tweetInfo}>
+           <div   className={styles.tweetInfo}>
              <div className={styles.Like} onClick={handleLikeCount}>
                <FavoriteIcon style={{ color: likeColor }} />
                {likeCount}

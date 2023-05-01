@@ -114,3 +114,7 @@
     
     }
     }
+    .options>li:hover{
+      background-color: rgb(208, 229, 248);
+      border-radius: 0.8rem;
+    }

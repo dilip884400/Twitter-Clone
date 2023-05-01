@@ -10,12 +10,11 @@
   
 
 }
+
 .teetInfo{
   display: flex;
   flex-direction: row;
-  
-  margin-top: 1rem;
-  gap: 0.2rem;
+ justify-content:space-around;
 }
 .tweetInfo{
   
@@ -24,7 +23,7 @@
   justify-content: space-around;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-size: 24px;
+  font-size: 2rem;
 }
 
 .buttons {
@@ -110,11 +109,14 @@ button.active {
 .lastBtn:hover{
   background-color: #f6f3f3;
 }
+.postTweetMainCard{
+  border: 1px solid rgb(222, 222, 222);
+}
 .tweet{
   display: flex;
   flex-direction: column;
  margin: 0;
-  border: 1px solid black;
+  border: 1px solid rgb(233, 233, 233);
   
   
   
@@ -127,15 +129,20 @@ button.active {
   border-radius: 8px;
 }
 .text{
-  display: flex;
-justify-content: start;
-margin-left: 5rem;
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  text-align: start;
+  margin-left: 2.8rem;
+  margin-right: 2rem;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+ 
 }
 .h3 {
-  font-size: 25px;
-  
-  margin-left: 1rem;
- 
+  margin-right: 10rem;
+  margin-top: 1rem;
 }
 .avatar{
   margin-top: 1rem;
@@ -145,11 +152,23 @@ margin-left: 5rem;
 
 
 /* Styles for the tweet content */
-.p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-top: 2rem;
-  margin-bottom: 8px;
-  margin-left: 1rem;
-  color: black;
+
+.tweetInfo:hover{
+cursor: pointer;
+}
+.p{
+  margin-top: 1rem;
+}
+.tweetBtn:hover{
+  background-color: rgb(216, 255, 255);
+  border-radius: 0.9rem;
+}
+.Like:hover{
+  background-color: rgb(216, 255, 255);
+  border-radius: 0.9rem;
+}
+
+.Retweet:hover{
+  background-color: rgb(216, 255, 255);
+  border-radius: 0.9rem;
 }

@@ -1,8 +1,13 @@
 .RightSideBar{
     margin-left: 2rem;
-    height: 100vh;
+    height: 100000000vh;
     position: fixed;
     width: 20%;
     top: 0;
    
+}
+.RightSideBar:hover{
+   
+    position:absolute;
+
 }
