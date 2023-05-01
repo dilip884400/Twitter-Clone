@@ -230,7 +230,7 @@ export default function PostTweet() {
       </div>
       <div className={styles.tweet}>
         {tweets.map((tweet, index) => (
-          <div key={index}>
+          <div  className={styles.postTweetMainCard} key={index}>
             <div className={styles.teetInfo}>
               <Avatar
                 alt="Remy Sharp"
@@ -272,7 +272,7 @@ export default function PostTweet() {
 
         <div>
         {twee.map((twee,inde) => (
-           <div key={inde}>
+           <div className={styles.postTweetMainCard} key={inde}>
            <div className={styles.teetInfo}>
              <Avatar
                alt="Remy Sharp"
