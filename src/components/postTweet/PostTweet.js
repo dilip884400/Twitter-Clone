@@ -25,6 +25,7 @@ export default function PostTweet() {
   const [tweetText, setTweetText] = useState("");
   const [tweetImage, setTweetImage] = useState(null);
   const [tweets, setTweets] = useState([]);
+  let time = new Date().toLocaleString()
   function handleLikeCount() {
     if (likeColor === "black") {
       setLikeCount(1);
@@ -280,7 +281,7 @@ export default function PostTweet() {
                src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
              />
              <h3 className={styles.h3}>Darshan4943</h3>
-            
+             <p className={styles.p} >{time}</p>
            </div>
            <p className={styles.text}>{twee.content}</p>
            <div className={styles.image}>
