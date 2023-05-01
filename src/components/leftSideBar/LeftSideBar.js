@@ -370,7 +370,7 @@ function Head() {
   };
 
   function handleClick() {
-    if(image||text){
+    if(text){
     let tweetObj = {
       content: text,
       images: image,
