@@ -75,7 +75,7 @@ function Righthomebox2() {
   }
   return (
     <div className={style.container}>
-      <h1>Who to follow</h1>
+      <h3 className={style.h3}>Who to follow</h3>
       <div className={style.main}>
         {trending.map((menu,id) => {
           return (

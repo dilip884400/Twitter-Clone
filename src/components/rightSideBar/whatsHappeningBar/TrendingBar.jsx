@@ -45,7 +45,7 @@ const Trends = () => {
   ]);
   const [selectedId, setSelectedId] = useState(null);
   const [trending , setTrendings] = useState(isNotIntrested)
-  const [isShowingAllTrendings, setIsShowingAllTrendings] = useState(false)
+  const [isShowingAllTrendings, setIsShowingAllTrendings] = useState(true)
   const updateId = (id) => setSelectedId(id);
   const[data,setData]=useState([...trending])
   const HandleClick = () => {

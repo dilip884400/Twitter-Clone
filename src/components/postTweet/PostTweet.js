@@ -13,7 +13,7 @@ import {  AiOutlineAreaChart } from "react-icons/ai";
 import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { FiDownload } from "react-icons/fi";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import {  tweetData } from "../leftSideBar/tweetData";
+import {  tweetData } from "../../pages/Atom";
 import { useRecoilValue } from "recoil";
 
 export default function PostTweet() {

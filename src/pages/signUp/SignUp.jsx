@@ -2,13 +2,13 @@ import React, { useState } from "react";
 
 import styles from "./SignUp.module.css";
 import { Box, Button, TextField } from "@mui/material";
-import { Days, Month, Year } from "../Data/AtomData/Data"
+import { Days, Month, Year } from "../Data/Data"
 import { Link, useNavigate } from "react-router-dom";
 import TwitterIcon from '@mui/icons-material/Twitter';
 
 
 const SignUp = () => {
-  const [isInput, setIsInput] = useState(false);
+ 
   const navigate = useNavigate();
 
   const [data, setData] = useState({

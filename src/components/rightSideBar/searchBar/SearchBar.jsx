@@ -8,8 +8,8 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform search action with the query here
-    console.log(query);
+    
+    
   };
 
   const handleInputFocus = () => {

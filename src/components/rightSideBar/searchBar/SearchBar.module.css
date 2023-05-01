@@ -3,6 +3,8 @@
   display: flex;
   align-items: center;
   margin: 1rem;
+  gap: 1rem;
+  justify-content: space-between;
 }
 
 .searchInput {
@@ -12,18 +14,21 @@
   background:#EFF3F4;
   border-radius: 50px;
   color: rgb(10, 10, 10);
-  padding: 0.93rem 2rem;
+  padding: 0.5rem 3rem;
   font-size: 1rem;
+  gap:1rem;
+  
 }
 
 .searchButton {
   position: absolute;
-  top: 50%;
-  right: 0.5rem;
+  top: 55%;
+  right: -3rem;
   transform: translateY(-50%);
   border: none;
   background: none;
   cursor: pointer;
+
 }
 
 .searchButton:focus {

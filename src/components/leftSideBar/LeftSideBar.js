@@ -1,5 +1,5 @@
 
-import  PopupState, { popupState } from "material-ui-popup-state";
+import  PopupState from "material-ui-popup-state";
 
 import styles from "./LeftSideBar.module.css";
 import HomeIcon from "@mui/icons-material/Home";
@@ -13,9 +13,9 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Box, Button, Dialog, Popover, useMediaQuery } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { Avatar } from "antd";
-import { isLogin, tweetData, userData } from "../../pages/Atom";
-import { useRecoilState } from "recoil";
-import React, { useEffect, useState } from "react";
+import { isLogin, tweetData } from "../../pages/Atom";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import React, {  useState } from "react";
 import { bindPopover, bindTrigger } from "material-ui-popup-state";
 import { useNavigate } from "react-router-dom";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -30,7 +30,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 const LeftSideBar = () => {
   const isViewportBelow700 = useMediaQuery('(max-width:700px)');
 
-  const [islogin, setisLogin] = useRecoilState(isLogin);
+  const setisLogin = useSetRecoilState(isLogin);
   
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -353,7 +353,7 @@ function Head() {
   const [image, setImage] = useState(null);
   const [text, setText] = useState("");
   const [tweet, setTweet] = useRecoilState(tweetData);
-  const [user, setUser] = useRecoilState(userData);
+  
 
   
   
@@ -370,7 +370,7 @@ function Head() {
   };
 
   function handleClick() {
-    
+    if(image||text){
     let tweetObj = {
       content: text,
       images: image,
@@ -378,7 +378,8 @@ function Head() {
     Object.preventExtensions(tweetObj);
     
     setTweet([tweetObj, ...tweet]);
-   
+    
+  }
   }
   return (
     <>
