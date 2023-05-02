@@ -13,11 +13,11 @@ import {  AiOutlineAreaChart } from "react-icons/ai";
 import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { FiDownload } from "react-icons/fi";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import {  tweetData } from "../../pages/Atom";
+import {  tweeData } from "../leftSideBar/tweetData"
 import { useRecoilValue } from "recoil";
 
 export default function PostTweet() {
-  const twee = useRecoilValue(tweetData);
+  const twee = useRecoilValue(tweeData);
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
   const [likeColor, setLikeColor] = useState("black");

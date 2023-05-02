@@ -13,7 +13,8 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Box, Button, Dialog, Popover, useMediaQuery } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { Avatar } from "antd";
-import { isLogin, tweetData } from "../../pages/Atom";
+import { isLogin } from "../../pages/Atom";
+import {tweeData} from "./tweetData"
 import { useRecoilState, useSetRecoilState } from "recoil";
 import React, {  useState } from "react";
 import { bindPopover, bindTrigger } from "material-ui-popup-state";
@@ -352,7 +353,7 @@ export default LeftSideBar;
 function Head() {
   const [image, setImage] = useState(null);
   const [text, setText] = useState("");
-  const [tweet, setTweet] = useRecoilState(tweetData);
+  const [tweet, setTweet] = useRecoilState(tweeData);
   
 
   
@@ -454,6 +455,7 @@ function Head() {
             <input
               id="fileInput"
               type="file"
+              value={image}
               accept="image/*"
               style={{ display: "none" }}
               onChange={handleImageChange}

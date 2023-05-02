@@ -11,16 +11,15 @@ import { tweetsAtom } from "./recoil/TweetsRecoil";
 import { usersAtom } from "./recoil/UsersRecoil";
 import { fetchTweets } from "./services/Tweets";
 import { fetchUsers } from "./services/Users";
-// import { api } from "./services/Api";
+
 function App() {
-  // const setTweets = useRecoilState(tweetsAtom)
-  // const setUsers = useRecoilState(usersAtom)
+
   const setTweets = useSetRecoilState(tweetsAtom)
   const setUsers = useSetRecoilState(usersAtom)
   
     useEffect(()=>{
       fetchTweets().then((tweets)=>{
-        console.log(tweets)
+        // console.log(tweets)
        setTweets(tweets)
       });
       fetchUsers().then((users)=>{
